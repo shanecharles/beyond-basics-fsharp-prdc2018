@@ -59,10 +59,13 @@
 <div class="tip" id="fs11">Multiple items<br />val string : value:&#39;T -&gt; string<br /><br />Full name: Microsoft.FSharp.Core.Operators.string<br /><br />--------------------<br />type string = System.String<br /><br />Full name: Microsoft.FSharp.Core.string</div>
 <div class="tip" id="fs12">Wrestler.SignatureMove: string</div>
 <div class="tip" id="fs13">val w1 : Wrestler<br /><br />Full name: index.w1</div>
-<div class="tip" id="fs14">type WrestlerType =<br />&#160;&#160;| Face<br />&#160;&#160;| Heel<br />&#160;&#160;| Neutral<br /><br />Full name: index.WrestlerType</div>
-<div class="tip" id="fs15">union case WrestlerType.Face: WrestlerType</div>
-<div class="tip" id="fs16">union case WrestlerType.Heel: WrestlerType</div>
-<div class="tip" id="fs17">union case WrestlerType.Neutral: WrestlerType</div>
+<div class="tip" id="fs14">type ValidationResult =<br />&#160;&#160;| OK<br />&#160;&#160;| Errors of (string * string) list<br />&#160;&#160;| Exception of Exception<br /><br />Full name: index.ValidationResult</div>
+<div class="tip" id="fs15">union case ValidationResult.OK: ValidationResult</div>
+<div class="tip" id="fs16">union case ValidationResult.Errors: (string * string) list -&gt; ValidationResult</div>
+<div class="tip" id="fs17">type &#39;T list = List&lt;&#39;T&gt;<br /><br />Full name: Microsoft.FSharp.Collections.list&lt;_&gt;</div>
+<div class="tip" id="fs18">union case ValidationResult.Exception: System.Exception -&gt; ValidationResult</div>
+<div class="tip" id="fs19">namespace System</div>
+<div class="tip" id="fs20">Multiple items<br />type Exception =<br />&#160;&#160;new : unit -&gt; Exception + 2 overloads<br />&#160;&#160;member Data : IDictionary<br />&#160;&#160;member GetBaseException : unit -&gt; Exception<br />&#160;&#160;member GetObjectData : info:SerializationInfo * context:StreamingContext -&gt; unit<br />&#160;&#160;member GetType : unit -&gt; Type<br />&#160;&#160;member HResult : int with get, set<br />&#160;&#160;member HelpLink : string with get, set<br />&#160;&#160;member InnerException : Exception<br />&#160;&#160;member Message : string<br />&#160;&#160;member Source : string with get, set<br />&#160;&#160;...<br /><br />Full name: System.Exception<br /><br />--------------------<br />System.Exception() : unit<br />System.Exception(message: string) : unit<br />System.Exception(message: string, innerException: exn) : unit</div>
 
         <!-- Any section element inside of this container is displayed as a slide -->
         <div class="slides">
@@ -89,12 +92,12 @@
 <span class="l">5: </span>
 <span class="l">6: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span onmouseout="hideTip(event, 'fs1', 22)" onmouseover="showTip(event, 'fs1', 22)" class="i">ContactType</span> <span class="o">=</span> | <span onmouseout="hideTip(event, 'fs2', 23)" onmouseover="showTip(event, 'fs2', 23)" class="i">Twitter</span> | <span onmouseout="hideTip(event, 'fs3', 24)" onmouseover="showTip(event, 'fs3', 24)" class="i">Blog</span> | <span onmouseout="hideTip(event, 'fs4', 25)" onmouseover="showTip(event, 'fs4', 25)" class="i">GitHub</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span onmouseout="hideTip(event, 'fs1', 27)" onmouseover="showTip(event, 'fs1', 27)" class="i">ContactType</span> <span class="o">=</span> | <span onmouseout="hideTip(event, 'fs2', 28)" onmouseover="showTip(event, 'fs2', 28)" class="i">Twitter</span> | <span onmouseout="hideTip(event, 'fs3', 29)" onmouseover="showTip(event, 'fs3', 29)" class="i">Blog</span> | <span onmouseout="hideTip(event, 'fs4', 30)" onmouseover="showTip(event, 'fs4', 30)" class="i">GitHub</span>
 
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs5', 26)" onmouseover="showTip(event, 'fs5', 26)" class="f">getContactInfo</span> <span class="o">=</span> <span class="k">function</span>
-  | <span onmouseout="hideTip(event, 'fs2', 27)" onmouseover="showTip(event, 'fs2', 27)" class="p">Twitter</span> <span class="k">-&gt;</span> <span class="s">&quot;@dead_stroke&quot;</span>
-  | <span onmouseout="hideTip(event, 'fs3', 28)" onmouseover="showTip(event, 'fs3', 28)" class="p">Blog</span>    <span class="k">-&gt;</span> <span class="s">&quot;https://geekeh.com&quot;</span>
-  | <span onmouseout="hideTip(event, 'fs4', 29)" onmouseover="showTip(event, 'fs4', 29)" class="p">GitHub</span>  <span class="k">-&gt;</span> <span class="s">&quot;shanecharles&quot;</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs5', 31)" onmouseover="showTip(event, 'fs5', 31)" class="f">getContactInfo</span> <span class="o">=</span> <span class="k">function</span>
+  | <span onmouseout="hideTip(event, 'fs2', 32)" onmouseover="showTip(event, 'fs2', 32)" class="p">Twitter</span> <span class="k">-&gt;</span> <span class="s">&quot;@dead_stroke&quot;</span>
+  | <span onmouseout="hideTip(event, 'fs3', 33)" onmouseover="showTip(event, 'fs3', 33)" class="p">Blog</span>    <span class="k">-&gt;</span> <span class="s">&quot;https://geekeh.com&quot;</span>
+  | <span onmouseout="hideTip(event, 'fs4', 34)" onmouseover="showTip(event, 'fs4', 34)" class="p">GitHub</span>  <span class="k">-&gt;</span> <span class="s">&quot;shanecharles&quot;</span>
 </code></pre></td>
 </tr>
 </table>
@@ -158,10 +161,10 @@
 <span class="l">3: </span>
 <span class="l">4: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span onmouseout="hideTip(event, 'fs14', 18)" onmouseover="showTip(event, 'fs14', 18)" class="t">WrestlerType</span> <span class="o">=</span> 
-  | <span onmouseout="hideTip(event, 'fs15', 19)" onmouseover="showTip(event, 'fs15', 19)" class="p">Face</span>
-  | <span onmouseout="hideTip(event, 'fs16', 20)" onmouseover="showTip(event, 'fs16', 20)" class="p">Heel</span> 
-  | <span onmouseout="hideTip(event, 'fs17', 21)" onmouseover="showTip(event, 'fs17', 21)" class="p">Neutral</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span onmouseout="hideTip(event, 'fs14', 18)" onmouseover="showTip(event, 'fs14', 18)" class="t">ValidationResult</span> <span class="o">=</span> 
+  | <span onmouseout="hideTip(event, 'fs15', 19)" onmouseover="showTip(event, 'fs15', 19)" class="p">OK</span>
+  | <span onmouseout="hideTip(event, 'fs16', 20)" onmouseover="showTip(event, 'fs16', 20)" class="p">Errors</span> <span class="k">of</span> (<span onmouseout="hideTip(event, 'fs11', 21)" onmouseover="showTip(event, 'fs11', 21)" class="t">string</span> <span class="o">*</span> <span onmouseout="hideTip(event, 'fs11', 22)" onmouseover="showTip(event, 'fs11', 22)" class="t">string</span>) <span onmouseout="hideTip(event, 'fs17', 23)" onmouseover="showTip(event, 'fs17', 23)" class="t">list</span>
+  | <span onmouseout="hideTip(event, 'fs18', 24)" onmouseover="showTip(event, 'fs18', 24)" class="p">Exception</span> <span class="k">of</span> <span onmouseout="hideTip(event, 'fs19', 25)" onmouseover="showTip(event, 'fs19', 25)" class="i">System</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs20', 26)" onmouseover="showTip(event, 'fs20', 26)" class="t">Exception</span>
 </code></pre></td>
 </tr>
 </table>
@@ -187,12 +190,12 @@ F# for Fun and Profit
 <span class="l">5: </span>
 <span class="l">6: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span onmouseout="hideTip(event, 'fs1', 22)" onmouseover="showTip(event, 'fs1', 22)" class="i">ContactType</span> <span class="o">=</span> | <span onmouseout="hideTip(event, 'fs2', 23)" onmouseover="showTip(event, 'fs2', 23)" class="i">Twitter</span> | <span onmouseout="hideTip(event, 'fs3', 24)" onmouseover="showTip(event, 'fs3', 24)" class="i">Blog</span> | <span onmouseout="hideTip(event, 'fs4', 25)" onmouseover="showTip(event, 'fs4', 25)" class="i">GitHub</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span onmouseout="hideTip(event, 'fs1', 27)" onmouseover="showTip(event, 'fs1', 27)" class="i">ContactType</span> <span class="o">=</span> | <span onmouseout="hideTip(event, 'fs2', 28)" onmouseover="showTip(event, 'fs2', 28)" class="i">Twitter</span> | <span onmouseout="hideTip(event, 'fs3', 29)" onmouseover="showTip(event, 'fs3', 29)" class="i">Blog</span> | <span onmouseout="hideTip(event, 'fs4', 30)" onmouseover="showTip(event, 'fs4', 30)" class="i">GitHub</span>
 
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs5', 26)" onmouseover="showTip(event, 'fs5', 26)" class="f">getContactInfo</span> <span class="o">=</span> <span class="k">function</span>
-  | <span onmouseout="hideTip(event, 'fs2', 27)" onmouseover="showTip(event, 'fs2', 27)" class="p">Twitter</span> <span class="k">-&gt;</span> <span class="s">&quot;@dead_stroke&quot;</span>
-  | <span onmouseout="hideTip(event, 'fs3', 28)" onmouseover="showTip(event, 'fs3', 28)" class="p">Blog</span>    <span class="k">-&gt;</span> <span class="s">&quot;https://geekeh.com&quot;</span>
-  | <span onmouseout="hideTip(event, 'fs4', 29)" onmouseover="showTip(event, 'fs4', 29)" class="p">GitHub</span>  <span class="k">-&gt;</span> <span class="s">&quot;shanecharles&quot;</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs5', 31)" onmouseover="showTip(event, 'fs5', 31)" class="f">getContactInfo</span> <span class="o">=</span> <span class="k">function</span>
+  | <span onmouseout="hideTip(event, 'fs2', 32)" onmouseover="showTip(event, 'fs2', 32)" class="p">Twitter</span> <span class="k">-&gt;</span> <span class="s">&quot;@dead_stroke&quot;</span>
+  | <span onmouseout="hideTip(event, 'fs3', 33)" onmouseover="showTip(event, 'fs3', 33)" class="p">Blog</span>    <span class="k">-&gt;</span> <span class="s">&quot;https://geekeh.com&quot;</span>
+  | <span onmouseout="hideTip(event, 'fs4', 34)" onmouseover="showTip(event, 'fs4', 34)" class="p">GitHub</span>  <span class="k">-&gt;</span> <span class="s">&quot;shanecharles&quot;</span>
 </code></pre></td>
 </tr>
 </table>
