@@ -41,6 +41,7 @@
 
 - F# Refresh
 - Curry Power
+- Higher Order Functions
 - Composition
 - Active Patterns
 - Railway Oriented Programming
@@ -109,7 +110,7 @@
 
 > Grouping of read-only named values.
 
-    type Order = { OrderId : int
+    type Order = { OrderId    : int
                    CustomerId : int
                    OrderItems : string list }
     
@@ -119,11 +120,6 @@
 ---
 
 ### Record Update Shorthand
-
-    // False?
-    ord1 = { ord1 with 
-                OrderItems = "Car" :: ord1.OrderItems }
-
 
     let ord2 = { ord1 with 
                    OrderItems = "Car" :: ord1.OrderItems }
@@ -140,7 +136,40 @@
       | Error of System.Exception
 
 ***
+### Currying
 
+> translating the evaluation of a function with multiple arguments into 
+> a sequence of functions, each with a single argument.
+
+- Evaluation occurs once ALL arguments are satisfied
+- Create new functions through Partial Application
+
+---
+### Basic Example
+    
+    // int -> int -> int
+    let add x y = x + y
+
+    // int -> int
+    let increment x = add 1
+
+    // true
+    6 = increment 5
+
+---
+### Higher Order Functions
+
+> A function that returns a function or takes a function as an argument.
+
+---
+### Inject Dependencies
+
+
+    let validator (rules: (Order -> string option) seq) (o: Order) =
+        rules |> Seq.choose (fun rule -> rule item)
+
+
+***
 ### Pattern Matching
 
 > Deconstruct all the things.
@@ -245,61 +274,43 @@
 
 ***
 
-### Currying
+### Computation Expressions
 
-> translating the evaluation of a function with multiple arguments into 
-> a sequence of functions, each with a single argument.
-
-- Evaluation occurs once ALL arguments are satisfied
+> a convenient syntax for writing computations that can be sequenced and combined
+> using control flow constructs and bindings.
 
 ---
-### Basic Example
-    
-    // int -> int -> int
-    let add x y = x + y
+### Wait?
 
-    // int -> int
-    let increment x = add 1
-
-    // true
-    6 = increment 5
-
----
-### Not so Basic Example
-
-
-    
-### Higher Order Functions 
-
-> Receiving functions as arguments or returning functions.
-
-- Dependency Injection?
+![what](images/what.gif)
 
 ---
 
-### Partial Application
+### Tough to Explain not Too Difficult to Use
 
-    type Order = { OrderId : int; CustomerId : int }
-
-    let tryLookup (Orders : Order seq) key = 
-      orders |> Seq.tryFind (fun ord -> ord.OrderId = key)
-
-    let lookup = tryLookup [{OrderId=1; CustomerId=1}; {OrderId=2; CustomerId=1}]
+- Builders or workflows
+- `async { }`
+- `seq { }`
 
 ---
+### Asynchronous
 
-    type Order = { OrderId : int; CustomerId : int }
+    let req = System.Net.HttpWebRequest.Create("https://google.ca")
+    async { 
+       use! resp = req.AsyncGetResponse ()
+       printfn "Downloaded %0" resp.ResponseUri
+    }
 
-    let tryLookup (orders : Order seq) key =
-        let d = orders 
-                |> Seq.map (fun ord -> ord.OrderId, ord) 
-                |> dict
-        d |> Seq.tryFind key
-        
+---
+### Sequence
+
+    seq {
+        yield "Cat"
+        yield "Dog"
+        yield! ["Bat"; "Frog"]
+    }
 
 ***
-
-### 
 
 ### Extra Resources
 
