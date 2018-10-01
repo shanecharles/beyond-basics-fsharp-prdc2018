@@ -44,7 +44,7 @@
 - Higher Order Functions
 - Composition
 - Active Patterns
-- Railway Oriented Programming
+- Computation Expressions
 - Cloud
 - Summary
 
@@ -79,11 +79,11 @@
     // (|>) Forward pipe for left to right readability
     name |> sayHello  
 
+    // (>>) Compose functions
+    let add1mult2 = ((+) 1) >> ((*) 2)
+
     // (::) Cons operator, append at beginning of list
     let xs = 42 :: [ 2; 24 ]
-
-    // Lambda
-    let add1 = (fun x -> x + 1)
 
 ---
 
@@ -167,6 +167,12 @@
 
     let validator (rules: (Order -> string option) seq) (o: Order) =
         rules |> Seq.choose (fun rule -> rule item)
+
+---
+### Composition
+
+- Combine functions to build new functions using: `>>`
+ - Think lego blocks
 
 
 ***
@@ -273,6 +279,25 @@
 - Maximum 7 choices for Complete Pattern
 
 ***
+### Advanced Domain Modelling
+
+- Single case discriminated unions
+- Make illegal states unrepresentable
+
+---
+### 
+
+    type Address = {
+          Address1 : string
+          City     : string 
+        }
+
+    type VerifiedAddress = VerifiedAddress of Address
+
+    let verifiedAddressOnly (VerifiedAddress address) = 
+        printfn "Verified Addresses: %A" address
+
+***
 
 ### Computation Expressions
 
@@ -291,9 +316,10 @@
 - Builders or workflows
 - `async { }`
 - `seq { }`
+- `!` bang notation
 
 ---
-### Asynchronous
+### Asynchronous Computation
 
     let req = System.Net.HttpWebRequest.Create("https://google.ca")
     async { 
@@ -304,18 +330,63 @@
 ---
 ### Sequence
 
-    seq {
-        yield "Cat"
-        yield "Dog"
-        yield! ["Bat"; "Frog"]
-    }
+    let fib = 
+       let rec fib' x y =
+          seq {
+             yield  y
+             yield! fib' y (x + y)
+          }
+       fib' 0 1
+
+***
+### F# Azure Function
+
+- Azure Function v1: 
+ - super easy to get started
+- Azure Function v2: 
+ - Current Status: bring the pain
+
+---
+### No More F# Script Support
+
+- Issues with dotnetcore 2 and FSI
+- Precompiled Only
+- No templates as of September 2018
+- Lot's of steps
+- Tears
+- It will get better
+
+---
+### Brief Summary of Pain (MacOS)
+
+- Install 
+ - dotnetcore
+ - azure-functions-core-tools
+ - azure-cli
+ - vs code
+- dotnet new F# dll
+- Manual configuration
+- Cursing
+- azure command line publish bug supporting only C#
+- dotnet publish
+- Deploy via VS Code
+- Profit?
 
 ***
 
+### Honourable Mentions
+
+- Type Providers
+- Property Based Testing
+  - FsCheck
+
+***
 ### Extra Resources
 
 - F# for Fun and Profit 
  - https://fsharpforfunandprofit.com/posts/property-based-testing/
+- Precompiled Azure Functions
+ - https://discardchanges.com/post/building-azure-functions-with-precompiled-fsharp/
 
 ***
 
