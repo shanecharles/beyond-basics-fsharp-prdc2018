@@ -279,22 +279,21 @@
 - Maximum 7 choices for Complete Pattern
 
 ***
-### Advanced Domain Modelling
+### Domain Modelling
 
 - Single case discriminated unions
 - Make illegal states unrepresentable
 
 ---
-### 
+### Ensure Correctness
 
-    type Address = {
-          Address1 : string
-          City     : string 
-        }
+    type Address = 
+        { Address1 : string
+          City     : string }
 
     type VerifiedAddress = VerifiedAddress of Address
 
-    let verifiedAddressOnly (VerifiedAddress address) = 
+    let shipOrder (VerifiedAddress address) = 
         printfn "Verified Addresses: %A" address
 
 ***
