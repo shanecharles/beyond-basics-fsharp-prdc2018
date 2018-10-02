@@ -138,7 +138,7 @@
 <div class="tip" id="fs90">Address.Address1: string</div>
 <div class="tip" id="fs91">Address.City: string</div>
 <div class="tip" id="fs92">Multiple items<br />union case VerifiedAddress.VerifiedAddress: Address -&gt; VerifiedAddress<br /><br />--------------------<br />type VerifiedAddress = | VerifiedAddress of Address<br /><br />Full name: index.VerifiedAddress</div>
-<div class="tip" id="fs93">val verifiedAddressOnly : VerifiedAddress -&gt; unit<br /><br />Full name: index.verifiedAddressOnly</div>
+<div class="tip" id="fs93">val shipOrder : VerifiedAddress -&gt; unit<br /><br />Full name: index.shipOrder</div>
 <div class="tip" id="fs94">val address : Address</div>
 <div class="tip" id="fs95">type HttpWebRequest =<br />&#160;&#160;inherit WebRequest<br />&#160;&#160;member Abort : unit -&gt; unit<br />&#160;&#160;member Accept : string with get, set<br />&#160;&#160;member AddRange : range:int -&gt; unit + 7 overloads<br />&#160;&#160;member Address : Uri with get, set<br />&#160;&#160;member AllowAutoRedirect : bool with get, set<br />&#160;&#160;member AllowReadStreamBuffering : bool with get, set<br />&#160;&#160;member AllowWriteStreamBuffering : bool with get, set<br />&#160;&#160;member AutomaticDecompression : DecompressionMethods with get, set<br />&#160;&#160;member BeginGetRequestStream : callback:AsyncCallback * state:obj -&gt; IAsyncResult<br />&#160;&#160;member BeginGetResponse : callback:AsyncCallback * state:obj -&gt; IAsyncResult<br />&#160;&#160;...<br /><br />Full name: System.Net.HttpWebRequest</div>
 <div class="tip" id="fs96">val async : AsyncBuilder<br /><br />Full name: Microsoft.FSharp.Core.ExtraTopLevelOperators.async</div>
@@ -572,14 +572,14 @@ Combine functions to build new functions using: <code>&gt;&gt;</code>
 </section>
 <section >
 <section >
-<h3>Advanced Domain Modelling</h3>
+<h3>Domain Modelling</h3>
 <ul>
 <li>Single case discriminated unions</li>
 <li>Make illegal states unrepresentable</li>
 </ul>
 </section>
 <section >
-<h3></h3>
+<h3>Ensure Correctness</h3>
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 <span class="l">2: </span>
 <span class="l">3: </span>
@@ -588,16 +588,14 @@ Combine functions to build new functions using: <code>&gt;&gt;</code>
 <span class="l">6: </span>
 <span class="l">7: </span>
 <span class="l">8: </span>
-<span class="l">9: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span onmouseout="hideTip(event, 'fs89', 176)" onmouseover="showTip(event, 'fs89', 176)" class="t">Address</span> <span class="o">=</span> {
-      <span onmouseout="hideTip(event, 'fs90', 177)" onmouseover="showTip(event, 'fs90', 177)" class="i">Address1</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs30', 178)" onmouseover="showTip(event, 'fs30', 178)" class="t">string</span>
-      <span onmouseout="hideTip(event, 'fs91', 179)" onmouseover="showTip(event, 'fs91', 179)" class="i">City</span>     <span class="o">:</span> <span onmouseout="hideTip(event, 'fs30', 180)" onmouseover="showTip(event, 'fs30', 180)" class="t">string</span> 
-    }
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span onmouseout="hideTip(event, 'fs89', 176)" onmouseover="showTip(event, 'fs89', 176)" class="t">Address</span> <span class="o">=</span> 
+    { <span onmouseout="hideTip(event, 'fs90', 177)" onmouseover="showTip(event, 'fs90', 177)" class="i">Address1</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs30', 178)" onmouseover="showTip(event, 'fs30', 178)" class="t">string</span>
+      <span onmouseout="hideTip(event, 'fs91', 179)" onmouseover="showTip(event, 'fs91', 179)" class="i">City</span>     <span class="o">:</span> <span onmouseout="hideTip(event, 'fs30', 180)" onmouseover="showTip(event, 'fs30', 180)" class="t">string</span> }
 
 <span class="k">type</span> <span onmouseout="hideTip(event, 'fs92', 181)" onmouseover="showTip(event, 'fs92', 181)" class="t">VerifiedAddress</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs92', 182)" onmouseover="showTip(event, 'fs92', 182)" class="p">VerifiedAddress</span> <span class="k">of</span> <span onmouseout="hideTip(event, 'fs89', 183)" onmouseover="showTip(event, 'fs89', 183)" class="t">Address</span>
 
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs93', 184)" onmouseover="showTip(event, 'fs93', 184)" class="f">verifiedAddressOnly</span> (<span onmouseout="hideTip(event, 'fs92', 185)" onmouseover="showTip(event, 'fs92', 185)" class="p">VerifiedAddress</span> <span onmouseout="hideTip(event, 'fs94', 186)" onmouseover="showTip(event, 'fs94', 186)" class="i">address</span>) <span class="o">=</span> 
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs93', 184)" onmouseover="showTip(event, 'fs93', 184)" class="f">shipOrder</span> (<span onmouseout="hideTip(event, 'fs92', 185)" onmouseover="showTip(event, 'fs92', 185)" class="p">VerifiedAddress</span> <span onmouseout="hideTip(event, 'fs94', 186)" onmouseover="showTip(event, 'fs94', 186)" class="i">address</span>) <span class="o">=</span> 
     <span onmouseout="hideTip(event, 'fs9', 187)" onmouseover="showTip(event, 'fs9', 187)" class="f">printfn</span> <span class="s">&quot;Verified Addresses: </span><span class="pf">%A</span><span class="s">&quot;</span> <span class="i">address</span>
 </code></pre></td>
 </tr>
