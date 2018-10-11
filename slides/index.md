@@ -39,13 +39,11 @@
 
 ### Path
 
-- F# Refresh
-- Curry Power
-- Higher Order Functions
-- Composition
+- Whirlwind Tour of F#
+- Recursion
 - Active Patterns
 - Computation Expressions
-- Cloud
+- Azure Function
 - Summary
 
 ***
@@ -64,6 +62,7 @@
 - `let`
 - `use`
 - `rec`
+- `type`
 
 ---
 
@@ -135,23 +134,19 @@
       | Fail of (string * string) list
       | Error of System.Exception
 
-***
+---
 ### Currying
 
-> translating the evaluation of a function with multiple arguments into 
-> a sequence of functions, each with a single argument.
-
-- Evaluation occurs once ALL arguments are satisfied
-- Create new functions through Partial Application
+> Functions accepting multiple arguments are converted to multiple functions accepting one argument.
 
 ---
-### Basic Example
+### Example
     
     // int -> int -> int
     let add x y = x + y
 
     // int -> int
-    let increment x = add 1
+    let increment = add 1
 
     // true
     6 = increment 5
