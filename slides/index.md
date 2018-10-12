@@ -42,6 +42,7 @@
 - Whirlwind Tour of F#
 - Recursion
 - Active Patterns
+- Domain Models
 - Computation Expressions
 - Azure Function
 - Summary
@@ -117,7 +118,6 @@
                  CustomerId=1
                  OrderItems=["Fries"] }
 ---
-
 ### Record Update Shorthand
 
     let ord2 = { ord1 with 
@@ -129,8 +129,8 @@
 > A choice of one or the other.
 
 
-    type ValidationResult<'a> = 
-      | OK of 'a
+    type ValidationResult = 
+      | OK
       | Fail of (string * string) list
       | Error of System.Exception
 
@@ -140,37 +140,42 @@
 > Functions accepting multiple arguments are converted to multiple functions accepting one argument.
 
 ---
-### Example
-    
-    // int -> int -> int
-    let add x y = x + y
-
-    // int -> int
-    let increment = add 1
-
-    // true
-    6 = increment 5
-
----
 ### Higher Order Functions
 
 > A function that returns a function or takes a function as an argument.
 
+***
+### Recursion
+
+- Recursion not used much
+ - depends on readability
+- List, Seq, Array functions
+ - map
+ - filter
+ - fold
+
+
 ---
-### Inject Dependencies
+### Fibonacci
+
+- It works, performant?
 
 
-    let validator (rules: (Order -> string option) seq) (o: Order) =
-        rules |> Seq.choose (fun rule -> rule item)
+    let fib (n : int64) =
+      let rec loop x =
+        if x = 1L || x = 0L then 1L
+        else
+          loop (x-1L) + loop (x-2L)
+      loop n
 
 ---
-### Composition
+### 10x Recursion
 
-- Combine functions to build new functions using: `>>`
- - Think lego blocks
-
+- Tail Call Optimized
+- Memoization
 
 ***
+
 ### Pattern Matching
 
 > Deconstruct all the things.
@@ -180,22 +185,20 @@
     | false, _ -> failwith "Womp womp" 
 
 ---
-
 ### Matching Records and Lists
 
-    let printFirstItems {Order.OrderItems=orderItems} = 
-      match orderItems with
+    let printFirstItems (order : Order) = 
+      match order.OrderItems with
       | []          -> printfn "No Items"
       | [x]         -> printfn "Only Item: %s" x
       | x :: y :: _ -> printfn "First 2: %s and %s" x y
 
 ---
-
 ### Matching Discriminated Unions
 
     let printResult result =
       match result with
-      | OK data -> printfn "Everything Worked for: %A" data
+      | OK      -> printfn "Everything Worked"
       | Fail [] -> printfn "It's fine"
       | Fail es -> printfn "Errors were reported:" 
                        es |> List.iter 
@@ -203,23 +206,7 @@
       | Error e -> printfn "!!System crashed... Reboot!!"
                        printfn "%A" e
 
----
-### Matching Types
-
-
-    let crash () = 
-      try
-        failwith "This crash was intentional"
-      with
-      | :? System.DivideByZeroException as e 
-            -> printfn "Div Zero: %s" e.Message
-      | :? System.Exception as e             
-            -> printfn "Exception: %s" e.Message
-
-
-
 ***
-
 ### Active Patterns
 
 > Active patterns allow us to extend the default matching capabilities in F#.
@@ -235,17 +222,6 @@
 - Complete Pattern
 
 ---
-### Transform Pattern
-
-    let (|DayMonth|) (date : System.DateTime) = 
-      date.Day, date.Month
-
-    let printSpecial = function
-      | DayMonth (29, 2) -> printfn "Leap Day"
-      | DayMonth (1, 1)  -> printfn "Infosec Birthdays"
-      | _                -> ()
-
----
 ### Partial Pattern / Parameterized
 
     let (|StringsMatch|_|) (patterns : string seq) v =
@@ -253,18 +229,6 @@
       if patterns |> Seq.exists (fun p -> p.Equals c)
       then Some (v.ToUpper())
       else None
-
----
-### Complete Pattern
-
-    let (|Shipping|Holiday|Weekend|) date =
-      let holidays = [(1,1)]
-      let (DayMonth dm) = date
-      if holidays |> Seq.exists ((=) dm) then Holiday
-      elif [DayOfWeek.Saturday; DayOfWeek.Sunday]
-           |> Seq.exists ((=) date.DayOfWeek)
-      then Weekend
-      else Shipping
 
 ---
 ### Active Pattern Warning
@@ -282,14 +246,21 @@
 ---
 ### Ensure Correctness
 
-    type Address = 
-        { Address1 : string
-          City     : string }
+    type EmailAddress = string 
 
-    type VerifiedAddress = VerifiedAddress of Address
+    type VerifiedAddress = VerifiedAddress of EmailAddress
 
-    let shipOrder (VerifiedAddress address) = 
-        printfn "Verified Addresses: %A" address
+    type EmailContact =
+        | Unverified of EmailAddress
+        | Verified of VerifiedAddress
+
+    let verifyEmailAddress (emailAddress * isVerified) =
+        if isVerified then Some (VerifiedAddress emailAddress)
+        else None
+
+    let sendPasswordReset (VerifiedAddress email) = 
+        printfn "Password reset sent to: %s" email
+
 
 ***
 
@@ -360,8 +331,8 @@
  - vs code
 - dotnet new F# dll
 - Manual configuration
-- Cursing
 - azure command line publish bug supporting only C#
+ - 5 stages of grief
 - dotnet publish
 - Deploy via VS Code
 - Profit?
