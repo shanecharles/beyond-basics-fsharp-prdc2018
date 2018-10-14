@@ -79,74 +79,64 @@
 <div class="tip" id="fs31">type &#39;T list = List&lt;&#39;T&gt;<br /><br />Full name: Microsoft.FSharp.Collections.list&lt;_&gt;</div>
 <div class="tip" id="fs32">val ord1 : Order<br /><br />Full name: index.ord1</div>
 <div class="tip" id="fs33">val ord2 : Order<br /><br />Full name: index.ord2</div>
-<div class="tip" id="fs34">type ValidationResult&lt;&#39;a&gt; =<br />&#160;&#160;| OK of &#39;a<br />&#160;&#160;| Fail of (string * string) list<br />&#160;&#160;| Error of Exception<br /><br />Full name: index.ValidationResult&lt;_&gt;</div>
-<div class="tip" id="fs35">union case ValidationResult.OK: &#39;a -&gt; ValidationResult&lt;&#39;a&gt;</div>
-<div class="tip" id="fs36">union case ValidationResult.Fail: (string * string) list -&gt; ValidationResult&lt;&#39;a&gt;</div>
-<div class="tip" id="fs37">union case ValidationResult.Error: System.Exception -&gt; ValidationResult&lt;&#39;a&gt;</div>
+<div class="tip" id="fs34">type ValidationResult =<br />&#160;&#160;| OK<br />&#160;&#160;| Fail of (string * string) list<br />&#160;&#160;| Error of Exception<br /><br />Full name: index.ValidationResult</div>
+<div class="tip" id="fs35">union case ValidationResult.OK: ValidationResult</div>
+<div class="tip" id="fs36">union case ValidationResult.Fail: (string * string) list -&gt; ValidationResult</div>
+<div class="tip" id="fs37">union case ValidationResult.Error: System.Exception -&gt; ValidationResult</div>
 <div class="tip" id="fs38">Multiple items<br />type Exception =<br />&#160;&#160;new : unit -&gt; Exception + 2 overloads<br />&#160;&#160;member Data : IDictionary<br />&#160;&#160;member GetBaseException : unit -&gt; Exception<br />&#160;&#160;member GetObjectData : info:SerializationInfo * context:StreamingContext -&gt; unit<br />&#160;&#160;member GetType : unit -&gt; Type<br />&#160;&#160;member HResult : int with get, set<br />&#160;&#160;member HelpLink : string with get, set<br />&#160;&#160;member InnerException : Exception<br />&#160;&#160;member Message : string<br />&#160;&#160;member Source : string with get, set<br />&#160;&#160;...<br /><br />Full name: System.Exception<br /><br />--------------------<br />System.Exception() : unit<br />System.Exception(message: string) : unit<br />System.Exception(message: string, innerException: exn) : unit</div>
-<div class="tip" id="fs39">val add : x:int -&gt; y:int -&gt; int<br /><br />Full name: index.add</div>
-<div class="tip" id="fs40">val x : int</div>
-<div class="tip" id="fs41">val y : int</div>
-<div class="tip" id="fs42">val increment : x:&#39;a -&gt; (int -&gt; int)<br /><br />Full name: index.increment</div>
-<div class="tip" id="fs43">val x : &#39;a</div>
-<div class="tip" id="fs44">val validator : rules:seq&lt;(Order -&gt; string option)&gt; -&gt; o:Order -&gt; seq&lt;string&gt;<br /><br />Full name: index.validator</div>
-<div class="tip" id="fs45">val rules : seq&lt;(Order -&gt; string option)&gt;</div>
-<div class="tip" id="fs46">type &#39;T option = Option&lt;&#39;T&gt;<br /><br />Full name: Microsoft.FSharp.Core.option&lt;_&gt;</div>
-<div class="tip" id="fs47">Multiple items<br />val seq : sequence:seq&lt;&#39;T&gt; -&gt; seq&lt;&#39;T&gt;<br /><br />Full name: Microsoft.FSharp.Core.Operators.seq<br /><br />--------------------<br />type seq&lt;&#39;T&gt; = System.Collections.Generic.IEnumerable&lt;&#39;T&gt;<br /><br />Full name: Microsoft.FSharp.Collections.seq&lt;_&gt;</div>
-<div class="tip" id="fs48">val o : Order</div>
-<div class="tip" id="fs49">module Seq<br /><br />from Microsoft.FSharp.Collections</div>
-<div class="tip" id="fs50">val choose : chooser:(&#39;T -&gt; &#39;U option) -&gt; source:seq&lt;&#39;T&gt; -&gt; seq&lt;&#39;U&gt;<br /><br />Full name: Microsoft.FSharp.Collections.Seq.choose</div>
-<div class="tip" id="fs51">val rule : (Order -&gt; string option)</div>
-<div class="tip" id="fs52">Multiple items<br />type Decimal =<br />&#160;&#160;struct<br />&#160;&#160;&#160;&#160;new : value:int -&gt; decimal + 7 overloads<br />&#160;&#160;&#160;&#160;member CompareTo : value:obj -&gt; int + 1 overload<br />&#160;&#160;&#160;&#160;member Equals : value:obj -&gt; bool + 1 overload<br />&#160;&#160;&#160;&#160;member GetHashCode : unit -&gt; int<br />&#160;&#160;&#160;&#160;member GetTypeCode : unit -&gt; TypeCode<br />&#160;&#160;&#160;&#160;member ToString : unit -&gt; string + 3 overloads<br />&#160;&#160;&#160;&#160;static val Zero : decimal<br />&#160;&#160;&#160;&#160;static val One : decimal<br />&#160;&#160;&#160;&#160;static val MinusOne : decimal<br />&#160;&#160;&#160;&#160;static val MaxValue : decimal<br />&#160;&#160;&#160;&#160;...<br />&#160;&#160;end<br /><br />Full name: System.Decimal<br /><br />--------------------<br />System.Decimal()<br />System.Decimal(value: int) : unit<br />System.Decimal(value: uint32) : unit<br />System.Decimal(value: int64) : unit<br />System.Decimal(value: uint64) : unit<br />System.Decimal(value: float32) : unit<br />System.Decimal(value: float) : unit<br />System.Decimal(bits: int []) : unit<br />System.Decimal(lo: int, mid: int, hi: int, isNegative: bool, scale: byte) : unit</div>
-<div class="tip" id="fs53">System.Decimal.TryParse(s: string, result: byref&lt;decimal&gt;) : bool<br />System.Decimal.TryParse(s: string, style: System.Globalization.NumberStyles, provider: System.IFormatProvider, result: byref&lt;decimal&gt;) : bool</div>
-<div class="tip" id="fs54">val v : decimal</div>
-<div class="tip" id="fs55">val failwith : message:string -&gt; &#39;T<br /><br />Full name: Microsoft.FSharp.Core.Operators.failwith</div>
-<div class="tip" id="fs56">val printFirstItems : Order -&gt; unit<br /><br />Full name: index.printFirstItems</div>
-<div class="tip" id="fs57">val orderItems : string list</div>
-<div class="tip" id="fs58">val x : string</div>
-<div class="tip" id="fs59">val y : string</div>
-<div class="tip" id="fs60">val printResult : result:ValidationResult&lt;&#39;a&gt; -&gt; unit<br /><br />Full name: index.printResult</div>
-<div class="tip" id="fs61">val result : ValidationResult&lt;&#39;a&gt;</div>
-<div class="tip" id="fs62">val data : &#39;a</div>
-<div class="tip" id="fs63">val es : (string * string) list</div>
-<div class="tip" id="fs64">Multiple items<br />module List<br /><br />from Microsoft.FSharp.Collections<br /><br />--------------------<br />type List&lt;&#39;T&gt; =<br />&#160;&#160;| ( [] )<br />&#160;&#160;| ( :: ) of Head: &#39;T * Tail: &#39;T list<br />&#160;&#160;interface IReadOnlyCollection&lt;&#39;T&gt;<br />&#160;&#160;interface IEnumerable<br />&#160;&#160;interface IEnumerable&lt;&#39;T&gt;<br />&#160;&#160;member GetSlice : startIndex:int option * endIndex:int option -&gt; &#39;T list<br />&#160;&#160;member Head : &#39;T<br />&#160;&#160;member IsEmpty : bool<br />&#160;&#160;member Item : index:int -&gt; &#39;T with get<br />&#160;&#160;member Length : int<br />&#160;&#160;member Tail : &#39;T list<br />&#160;&#160;static member Cons : head:&#39;T * tail:&#39;T list -&gt; &#39;T list<br />&#160;&#160;static member Empty : &#39;T list<br /><br />Full name: Microsoft.FSharp.Collections.List&lt;_&gt;</div>
-<div class="tip" id="fs65">val iter : action:(&#39;T -&gt; unit) -&gt; list:&#39;T list -&gt; unit<br /><br />Full name: Microsoft.FSharp.Collections.List.iter</div>
-<div class="tip" id="fs66">val p : string</div>
-<div class="tip" id="fs67">val m : string</div>
-<div class="tip" id="fs68">val e : System.Exception</div>
-<div class="tip" id="fs69">val crash : unit -&gt; unit<br /><br />Full name: index.crash</div>
-<div class="tip" id="fs70">Multiple items<br />type DivideByZeroException =<br />&#160;&#160;inherit ArithmeticException<br />&#160;&#160;new : unit -&gt; DivideByZeroException + 2 overloads<br /><br />Full name: System.DivideByZeroException<br /><br />--------------------<br />System.DivideByZeroException() : unit<br />System.DivideByZeroException(message: string) : unit<br />System.DivideByZeroException(message: string, innerException: exn) : unit</div>
-<div class="tip" id="fs71">val e : System.DivideByZeroException</div>
-<div class="tip" id="fs72">property System.Exception.Message: string</div>
-<div class="tip" id="fs73">val date : System.DateTime</div>
-<div class="tip" id="fs74">Multiple items<br />type DateTime =<br />&#160;&#160;struct<br />&#160;&#160;&#160;&#160;new : ticks:int64 -&gt; DateTime + 10 overloads<br />&#160;&#160;&#160;&#160;member Add : value:TimeSpan -&gt; DateTime<br />&#160;&#160;&#160;&#160;member AddDays : value:float -&gt; DateTime<br />&#160;&#160;&#160;&#160;member AddHours : value:float -&gt; DateTime<br />&#160;&#160;&#160;&#160;member AddMilliseconds : value:float -&gt; DateTime<br />&#160;&#160;&#160;&#160;member AddMinutes : value:float -&gt; DateTime<br />&#160;&#160;&#160;&#160;member AddMonths : months:int -&gt; DateTime<br />&#160;&#160;&#160;&#160;member AddSeconds : value:float -&gt; DateTime<br />&#160;&#160;&#160;&#160;member AddTicks : value:int64 -&gt; DateTime<br />&#160;&#160;&#160;&#160;member AddYears : value:int -&gt; DateTime<br />&#160;&#160;&#160;&#160;...<br />&#160;&#160;end<br /><br />Full name: System.DateTime<br /><br />--------------------<br />System.DateTime()<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />System.DateTime(ticks: int64) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />System.DateTime(ticks: int64, kind: System.DateTimeKind) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />System.DateTime(year: int, month: int, day: int) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />System.DateTime(year: int, month: int, day: int, calendar: System.Globalization.Calendar) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />System.DateTime(year: int, month: int, day: int, hour: int, minute: int, second: int) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />System.DateTime(year: int, month: int, day: int, hour: int, minute: int, second: int, kind: System.DateTimeKind) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />System.DateTime(year: int, month: int, day: int, hour: int, minute: int, second: int, calendar: System.Globalization.Calendar) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />System.DateTime(year: int, month: int, day: int, hour: int, minute: int, second: int, millisecond: int) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />System.DateTime(year: int, month: int, day: int, hour: int, minute: int, second: int, millisecond: int, kind: System.DateTimeKind) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em></div>
-<div class="tip" id="fs75">property System.DateTime.Day: int</div>
-<div class="tip" id="fs76">property System.DateTime.Month: int</div>
-<div class="tip" id="fs77">val printSpecial : _arg1:System.DateTime -&gt; unit<br /><br />Full name: index.printSpecial</div>
-<div class="tip" id="fs78">active recognizer DayMonth: System.DateTime -&gt; int * int<br /><br />Full name: index.( |DayMonth| )</div>
-<div class="tip" id="fs79">val patterns : seq&lt;string&gt;</div>
-<div class="tip" id="fs80">val v : &#39;a</div>
-<div class="tip" id="fs81">val c : &#39;a * obj</div>
-<div class="tip" id="fs82">val exists : predicate:(&#39;T -&gt; bool) -&gt; source:seq&lt;&#39;T&gt; -&gt; bool<br /><br />Full name: Microsoft.FSharp.Collections.Seq.exists</div>
-<div class="tip" id="fs83">System.String.Equals(value: string) : bool<br />System.String.Equals(obj: obj) : bool<br />System.String.Equals(value: string, comparisonType: System.StringComparison) : bool</div>
-<div class="tip" id="fs84">union case Option.Some: Value: &#39;T -&gt; Option&lt;&#39;T&gt;</div>
-<div class="tip" id="fs85">union case Option.None: Option&lt;&#39;T&gt;</div>
-<div class="tip" id="fs86">val holidays : (int * int) list</div>
-<div class="tip" id="fs87">val dm : int * int</div>
-<div class="tip" id="fs88">property System.DateTime.DayOfWeek: System.DayOfWeek</div>
-<div class="tip" id="fs89">type Address =<br />&#160;&#160;{Address1: string;<br />&#160;&#160;&#160;City: string;}<br /><br />Full name: index.Address</div>
-<div class="tip" id="fs90">Address.Address1: string</div>
-<div class="tip" id="fs91">Address.City: string</div>
-<div class="tip" id="fs92">Multiple items<br />union case VerifiedAddress.VerifiedAddress: Address -&gt; VerifiedAddress<br /><br />--------------------<br />type VerifiedAddress = | VerifiedAddress of Address<br /><br />Full name: index.VerifiedAddress</div>
-<div class="tip" id="fs93">val shipOrder : VerifiedAddress -&gt; unit<br /><br />Full name: index.shipOrder</div>
-<div class="tip" id="fs94">val address : Address</div>
-<div class="tip" id="fs95">type HttpWebRequest =<br />&#160;&#160;inherit WebRequest<br />&#160;&#160;member Abort : unit -&gt; unit<br />&#160;&#160;member Accept : string with get, set<br />&#160;&#160;member AddRange : range:int -&gt; unit + 7 overloads<br />&#160;&#160;member Address : Uri with get, set<br />&#160;&#160;member AllowAutoRedirect : bool with get, set<br />&#160;&#160;member AllowReadStreamBuffering : bool with get, set<br />&#160;&#160;member AllowWriteStreamBuffering : bool with get, set<br />&#160;&#160;member AutomaticDecompression : DecompressionMethods with get, set<br />&#160;&#160;member BeginGetRequestStream : callback:AsyncCallback * state:obj -&gt; IAsyncResult<br />&#160;&#160;member BeginGetResponse : callback:AsyncCallback * state:obj -&gt; IAsyncResult<br />&#160;&#160;...<br /><br />Full name: System.Net.HttpWebRequest</div>
-<div class="tip" id="fs96">val async : AsyncBuilder<br /><br />Full name: Microsoft.FSharp.Core.ExtraTopLevelOperators.async</div>
-<div class="tip" id="fs97">val resp : System.Net.WebResponse</div>
-<div class="tip" id="fs98">member System.Net.WebRequest.AsyncGetResponse : unit -&gt; Async&lt;System.Net.WebResponse&gt;</div>
-<div class="tip" id="fs99">property System.Net.WebResponse.ResponseUri: System.Uri</div>
-<div class="tip" id="fs100">val fib : seq&lt;int&gt;<br /><br />Full name: index.fib</div>
-<div class="tip" id="fs101">val fib&#39; : (int -&gt; int -&gt; seq&lt;int&gt;)</div>
+<div class="tip" id="fs39">val fib : n:int64 -&gt; int64<br /><br />Full name: index.fib</div>
+<div class="tip" id="fs40">val n : int64</div>
+<div class="tip" id="fs41">Multiple items<br />val int64 : value:&#39;T -&gt; int64 (requires member op_Explicit)<br /><br />Full name: Microsoft.FSharp.Core.Operators.int64<br /><br />--------------------<br />type int64 = System.Int64<br /><br />Full name: Microsoft.FSharp.Core.int64<br /><br />--------------------<br />type int64&lt;&#39;Measure&gt; = int64<br /><br />Full name: Microsoft.FSharp.Core.int64&lt;_&gt;</div>
+<div class="tip" id="fs42">val loop : (int64 -&gt; int64)</div>
+<div class="tip" id="fs43">val x : int64</div>
+<div class="tip" id="fs44">Multiple items<br />type Decimal =<br />&#160;&#160;struct<br />&#160;&#160;&#160;&#160;new : value:int -&gt; decimal + 7 overloads<br />&#160;&#160;&#160;&#160;member CompareTo : value:obj -&gt; int + 1 overload<br />&#160;&#160;&#160;&#160;member Equals : value:obj -&gt; bool + 1 overload<br />&#160;&#160;&#160;&#160;member GetHashCode : unit -&gt; int<br />&#160;&#160;&#160;&#160;member GetTypeCode : unit -&gt; TypeCode<br />&#160;&#160;&#160;&#160;member ToString : unit -&gt; string + 3 overloads<br />&#160;&#160;&#160;&#160;static val Zero : decimal<br />&#160;&#160;&#160;&#160;static val One : decimal<br />&#160;&#160;&#160;&#160;static val MinusOne : decimal<br />&#160;&#160;&#160;&#160;static val MaxValue : decimal<br />&#160;&#160;&#160;&#160;...<br />&#160;&#160;end<br /><br />Full name: System.Decimal<br /><br />--------------------<br />System.Decimal()<br />System.Decimal(value: int) : unit<br />System.Decimal(value: uint32) : unit<br />System.Decimal(value: int64) : unit<br />System.Decimal(value: uint64) : unit<br />System.Decimal(value: float32) : unit<br />System.Decimal(value: float) : unit<br />System.Decimal(bits: int []) : unit<br />System.Decimal(lo: int, mid: int, hi: int, isNegative: bool, scale: byte) : unit</div>
+<div class="tip" id="fs45">System.Decimal.TryParse(s: string, result: byref&lt;decimal&gt;) : bool<br />System.Decimal.TryParse(s: string, style: System.Globalization.NumberStyles, provider: System.IFormatProvider, result: byref&lt;decimal&gt;) : bool</div>
+<div class="tip" id="fs46">val v : decimal</div>
+<div class="tip" id="fs47">val failwith : message:string -&gt; &#39;T<br /><br />Full name: Microsoft.FSharp.Core.Operators.failwith</div>
+<div class="tip" id="fs48">val printFirstItems : order:Order -&gt; unit<br /><br />Full name: index.printFirstItems</div>
+<div class="tip" id="fs49">val order : Order</div>
+<div class="tip" id="fs50">val x : string</div>
+<div class="tip" id="fs51">val y : string</div>
+<div class="tip" id="fs52">val printResult : result:ValidationResult -&gt; unit<br /><br />Full name: index.printResult</div>
+<div class="tip" id="fs53">val result : ValidationResult</div>
+<div class="tip" id="fs54">val es : (string * string) list</div>
+<div class="tip" id="fs55">Multiple items<br />module List<br /><br />from Microsoft.FSharp.Collections<br /><br />--------------------<br />type List&lt;&#39;T&gt; =<br />&#160;&#160;| ( [] )<br />&#160;&#160;| ( :: ) of Head: &#39;T * Tail: &#39;T list<br />&#160;&#160;interface IReadOnlyCollection&lt;&#39;T&gt;<br />&#160;&#160;interface IEnumerable<br />&#160;&#160;interface IEnumerable&lt;&#39;T&gt;<br />&#160;&#160;member GetSlice : startIndex:int option * endIndex:int option -&gt; &#39;T list<br />&#160;&#160;member Head : &#39;T<br />&#160;&#160;member IsEmpty : bool<br />&#160;&#160;member Item : index:int -&gt; &#39;T with get<br />&#160;&#160;member Length : int<br />&#160;&#160;member Tail : &#39;T list<br />&#160;&#160;static member Cons : head:&#39;T * tail:&#39;T list -&gt; &#39;T list<br />&#160;&#160;static member Empty : &#39;T list<br /><br />Full name: Microsoft.FSharp.Collections.List&lt;_&gt;</div>
+<div class="tip" id="fs56">val iter : action:(&#39;T -&gt; unit) -&gt; list:&#39;T list -&gt; unit<br /><br />Full name: Microsoft.FSharp.Collections.List.iter</div>
+<div class="tip" id="fs57">val p : string</div>
+<div class="tip" id="fs58">val m : string</div>
+<div class="tip" id="fs59">val e : System.Exception</div>
+<div class="tip" id="fs60">namespace System.Text</div>
+<div class="tip" id="fs61">namespace System.Text.RegularExpressions</div>
+<div class="tip" id="fs62">val pattern : string</div>
+<div class="tip" id="fs63">val v : string</div>
+<div class="tip" id="fs64">val m : Match</div>
+<div class="tip" id="fs65">Multiple items<br />type Regex =<br />&#160;&#160;new : pattern:string -&gt; Regex + 2 overloads<br />&#160;&#160;member GetGroupNames : unit -&gt; string[]<br />&#160;&#160;member GetGroupNumbers : unit -&gt; int[]<br />&#160;&#160;member GroupNameFromNumber : i:int -&gt; string<br />&#160;&#160;member GroupNumberFromName : name:string -&gt; int<br />&#160;&#160;member IsMatch : input:string -&gt; bool + 1 overload<br />&#160;&#160;member Match : input:string -&gt; Match + 2 overloads<br />&#160;&#160;member MatchTimeout : TimeSpan<br />&#160;&#160;member Matches : input:string -&gt; MatchCollection + 1 overload<br />&#160;&#160;member Options : RegexOptions<br />&#160;&#160;...<br /><br />Full name: System.Text.RegularExpressions.Regex<br /><br />--------------------<br />Regex(pattern: string) : unit<br />Regex(pattern: string, options: RegexOptions) : unit<br />Regex(pattern: string, options: RegexOptions, matchTimeout: System.TimeSpan) : unit</div>
+<div class="tip" id="fs66">Regex.Match(input: string, pattern: string) : Match<br />Regex.Match(input: string, pattern: string, options: RegexOptions) : Match<br />Regex.Match(input: string, pattern: string, options: RegexOptions, matchTimeout: System.TimeSpan) : Match</div>
+<div class="tip" id="fs67">property Group.Success: bool</div>
+<div class="tip" id="fs68">val x : Group</div>
+<div class="tip" id="fs69">property Match.Groups: GroupCollection</div>
+<div class="tip" id="fs70">property Capture.Value: string</div>
+<div class="tip" id="fs71">val skip : count:int -&gt; list:&#39;T list -&gt; &#39;T list<br /><br />Full name: Microsoft.FSharp.Collections.List.skip</div>
+<div class="tip" id="fs72">union case Option.Some: Value: &#39;T -&gt; Option&lt;&#39;T&gt;</div>
+<div class="tip" id="fs73">union case Option.None: Option&lt;&#39;T&gt;</div>
+<div class="tip" id="fs74">type EmailAddress = string<br /><br />Full name: index.EmailAddress</div>
+<div class="tip" id="fs75">Multiple items<br />union case VerifiedAddress.VerifiedAddress: EmailAddress -&gt; VerifiedAddress<br /><br />--------------------<br />type VerifiedAddress = | VerifiedAddress of EmailAddress<br /><br />Full name: index.VerifiedAddress</div>
+<div class="tip" id="fs76">type EmailContact =<br />&#160;&#160;| Unverified of EmailAddress<br />&#160;&#160;| Verified of VerifiedAddress<br /><br />Full name: index.EmailContact</div>
+<div class="tip" id="fs77">union case EmailContact.Unverified: EmailAddress -&gt; EmailContact</div>
+<div class="tip" id="fs78">union case EmailContact.Verified: VerifiedAddress -&gt; EmailContact</div>
+<div class="tip" id="fs79">val verifyEmailAddress : &#39;a -&gt; VerifiedAddress option<br /><br />Full name: index.verifyEmailAddress</div>
+<div class="tip" id="fs80">val sendPasswordReset : VerifiedAddress -&gt; unit<br /><br />Full name: index.sendPasswordReset</div>
+<div class="tip" id="fs81">val email : EmailAddress</div>
+<div class="tip" id="fs82">type HttpWebRequest =<br />&#160;&#160;inherit WebRequest<br />&#160;&#160;member Abort : unit -&gt; unit<br />&#160;&#160;member Accept : string with get, set<br />&#160;&#160;member AddRange : range:int -&gt; unit + 7 overloads<br />&#160;&#160;member Address : Uri with get, set<br />&#160;&#160;member AllowAutoRedirect : bool with get, set<br />&#160;&#160;member AllowReadStreamBuffering : bool with get, set<br />&#160;&#160;member AllowWriteStreamBuffering : bool with get, set<br />&#160;&#160;member AutomaticDecompression : DecompressionMethods with get, set<br />&#160;&#160;member BeginGetRequestStream : callback:AsyncCallback * state:obj -&gt; IAsyncResult<br />&#160;&#160;member BeginGetResponse : callback:AsyncCallback * state:obj -&gt; IAsyncResult<br />&#160;&#160;...<br /><br />Full name: System.Net.HttpWebRequest</div>
+<div class="tip" id="fs83">val async : AsyncBuilder<br /><br />Full name: Microsoft.FSharp.Core.ExtraTopLevelOperators.async</div>
+<div class="tip" id="fs84">val resp : System.Net.WebResponse</div>
+<div class="tip" id="fs85">member System.Net.WebRequest.AsyncGetResponse : unit -&gt; Async&lt;System.Net.WebResponse&gt;</div>
+<div class="tip" id="fs86">property System.Net.WebResponse.ResponseUri: System.Uri</div>
+<div class="tip" id="fs87">val fib : seq&lt;int&gt;<br /><br />Full name: index.fib</div>
+<div class="tip" id="fs88">val fib&#39; : (int -&gt; int -&gt; seq&lt;int&gt;)</div>
+<div class="tip" id="fs89">val x : int</div>
+<div class="tip" id="fs90">val y : int</div>
+<div class="tip" id="fs91">Multiple items<br />val seq : sequence:seq&lt;&#39;T&gt; -&gt; seq&lt;&#39;T&gt;<br /><br />Full name: Microsoft.FSharp.Core.Operators.seq<br /><br />--------------------<br />type seq&lt;&#39;T&gt; = System.Collections.Generic.IEnumerable&lt;&#39;T&gt;<br /><br />Full name: Microsoft.FSharp.Collections.seq&lt;_&gt;</div>
 
         <!-- Any section element inside of this container is displayed as a slide -->
         <div class="slides">
@@ -173,12 +163,12 @@
 <span class="l">5: </span>
 <span class="l">6: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span onmouseout="hideTip(event, 'fs1', 211)" onmouseover="showTip(event, 'fs1', 211)" class="i">ContactType</span> <span class="o">=</span> | <span onmouseout="hideTip(event, 'fs2', 212)" onmouseover="showTip(event, 'fs2', 212)" class="i">Twitter</span> | <span onmouseout="hideTip(event, 'fs3', 213)" onmouseover="showTip(event, 'fs3', 213)" class="i">Blog</span> | <span onmouseout="hideTip(event, 'fs4', 214)" onmouseover="showTip(event, 'fs4', 214)" class="i">GitHub</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span onmouseout="hideTip(event, 'fs1', 175)" onmouseover="showTip(event, 'fs1', 175)" class="i">ContactType</span> <span class="o">=</span> | <span onmouseout="hideTip(event, 'fs2', 176)" onmouseover="showTip(event, 'fs2', 176)" class="i">Twitter</span> | <span onmouseout="hideTip(event, 'fs3', 177)" onmouseover="showTip(event, 'fs3', 177)" class="i">Blog</span> | <span onmouseout="hideTip(event, 'fs4', 178)" onmouseover="showTip(event, 'fs4', 178)" class="i">GitHub</span>
 
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs5', 215)" onmouseover="showTip(event, 'fs5', 215)" class="f">getContactInfo</span> <span class="o">=</span> <span class="k">function</span>
-  | <span onmouseout="hideTip(event, 'fs2', 216)" onmouseover="showTip(event, 'fs2', 216)" class="p">Twitter</span> <span class="k">-&gt;</span> <span class="s">&quot;@dead_stroke&quot;</span>
-  | <span onmouseout="hideTip(event, 'fs3', 217)" onmouseover="showTip(event, 'fs3', 217)" class="p">Blog</span>    <span class="k">-&gt;</span> <span class="s">&quot;https://geekeh.com&quot;</span>
-  | <span onmouseout="hideTip(event, 'fs4', 218)" onmouseover="showTip(event, 'fs4', 218)" class="p">GitHub</span>  <span class="k">-&gt;</span> <span class="s">&quot;shanecharles&quot;</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs5', 179)" onmouseover="showTip(event, 'fs5', 179)" class="f">getContactInfo</span> <span class="o">=</span> <span class="k">function</span>
+  | <span onmouseout="hideTip(event, 'fs2', 180)" onmouseover="showTip(event, 'fs2', 180)" class="p">Twitter</span> <span class="k">-&gt;</span> <span class="s">&quot;@dead_stroke&quot;</span>
+  | <span onmouseout="hideTip(event, 'fs3', 181)" onmouseover="showTip(event, 'fs3', 181)" class="p">Blog</span>    <span class="k">-&gt;</span> <span class="s">&quot;https://geekeh.com&quot;</span>
+  | <span onmouseout="hideTip(event, 'fs4', 182)" onmouseover="showTip(event, 'fs4', 182)" class="p">GitHub</span>  <span class="k">-&gt;</span> <span class="s">&quot;shanecharles&quot;</span>
 </code></pre></td>
 </tr>
 </table>
@@ -186,13 +176,12 @@
 <section >
 <h3>Path</h3>
 <ul>
-<li>F# Refresh</li>
-<li>Curry Power</li>
-<li>Higher Order Functions</li>
-<li>Composition</li>
+<li>Whirlwind Tour of F#</li>
+<li>Recursion</li>
 <li>Active Patterns</li>
+<li>Domain Models</li>
 <li>Computation Expressions</li>
-<li>Cloud</li>
+<li>Azure Function</li>
 <li>Summary</li>
 </ul>
 </section>
@@ -212,6 +201,7 @@
 <li><code>let</code></li>
 <li><code>use</code></li>
 <li><code>rec</code></li>
+<li><code>type</code></li>
 </ul>
 </section>
 <section >
@@ -325,49 +315,19 @@
 <span class="l">3: </span>
 <span class="l">4: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span onmouseout="hideTip(event, 'fs34', 47)" onmouseover="showTip(event, 'fs34', 47)" class="t">ValidationResult</span><span class="o">&lt;</span><span class="o">&#39;</span><span class="i">a</span><span class="o">&gt;</span> <span class="o">=</span> 
-  | <span onmouseout="hideTip(event, 'fs35', 48)" onmouseover="showTip(event, 'fs35', 48)" class="p">OK</span> <span class="k">of</span> <span class="o">&#39;</span><span class="i">a</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span onmouseout="hideTip(event, 'fs34', 47)" onmouseover="showTip(event, 'fs34', 47)" class="t">ValidationResult</span> <span class="o">=</span> 
+  | <span onmouseout="hideTip(event, 'fs35', 48)" onmouseover="showTip(event, 'fs35', 48)" class="p">OK</span>
   | <span onmouseout="hideTip(event, 'fs36', 49)" onmouseover="showTip(event, 'fs36', 49)" class="p">Fail</span> <span class="k">of</span> (<span onmouseout="hideTip(event, 'fs30', 50)" onmouseover="showTip(event, 'fs30', 50)" class="t">string</span> <span class="o">*</span> <span onmouseout="hideTip(event, 'fs30', 51)" onmouseover="showTip(event, 'fs30', 51)" class="t">string</span>) <span onmouseout="hideTip(event, 'fs31', 52)" onmouseover="showTip(event, 'fs31', 52)" class="t">list</span>
   | <span onmouseout="hideTip(event, 'fs37', 53)" onmouseover="showTip(event, 'fs37', 53)" class="p">Error</span> <span class="k">of</span> <span onmouseout="hideTip(event, 'fs13', 54)" onmouseover="showTip(event, 'fs13', 54)" class="i">System</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs38', 55)" onmouseover="showTip(event, 'fs38', 55)" class="t">Exception</span>
 </code></pre></td>
 </tr>
 </table>
 </section>
-</section>
-<section >
 <section >
 <h3>Currying</h3>
 <blockquote>
-<p>translating the evaluation of a function with multiple arguments into
-a sequence of functions, each with a single argument.</p>
+<p>Functions accepting multiple arguments are converted to multiple functions accepting one argument.</p>
 </blockquote>
-<ul>
-<li>Evaluation occurs once ALL arguments are satisfied</li>
-<li>Create new functions through Partial Application</li>
-</ul>
-</section>
-<section >
-<h3>Basic Example</h3>
-<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
-<span class="l">2: </span>
-<span class="l">3: </span>
-<span class="l">4: </span>
-<span class="l">5: </span>
-<span class="l">6: </span>
-<span class="l">7: </span>
-<span class="l">8: </span>
-</pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="c">// int -&gt; int -&gt; int</span>
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs39', 56)" onmouseover="showTip(event, 'fs39', 56)" class="f">add</span> <span onmouseout="hideTip(event, 'fs40', 57)" onmouseover="showTip(event, 'fs40', 57)" class="i">x</span> <span onmouseout="hideTip(event, 'fs41', 58)" onmouseover="showTip(event, 'fs41', 58)" class="i">y</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs40', 59)" onmouseover="showTip(event, 'fs40', 59)" class="i">x</span> <span class="o">+</span> <span onmouseout="hideTip(event, 'fs41', 60)" onmouseover="showTip(event, 'fs41', 60)" class="i">y</span>
-
-<span class="c">// int -&gt; int</span>
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs42', 61)" onmouseover="showTip(event, 'fs42', 61)" class="f">increment</span> <span onmouseout="hideTip(event, 'fs43', 62)" onmouseover="showTip(event, 'fs43', 62)" class="i">x</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs39', 63)" onmouseover="showTip(event, 'fs39', 63)" class="f">add</span> <span class="n">1</span>
-
-<span class="c">// true</span>
-<span class="n">6</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs42', 64)" onmouseover="showTip(event, 'fs42', 64)" class="f">increment</span> <span class="n">5</span>
-</code></pre></td>
-</tr>
-</table>
 </section>
 <section >
 <h3>Higher Order Functions</h3>
@@ -375,26 +335,41 @@ a sequence of functions, each with a single argument.</p>
 <p>A function that returns a function or takes a function as an argument.</p>
 </blockquote>
 </section>
+</section>
 <section >
-<h3>Inject Dependencies</h3>
+<section >
+<h3>Recursion</h3>
+<blockquote>
+<p>A function that calls itself to apply the same rules repeatedly.</p>
+</blockquote>
+</section>
+<section >
+<h3>Fibonacci</h3>
+<ul>
+<li>It works, performant?</li>
+</ul>
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 <span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+<span class="l">5: </span>
+<span class="l">6: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs44', 65)" onmouseover="showTip(event, 'fs44', 65)" class="f">validator</span> (<span onmouseout="hideTip(event, 'fs45', 66)" onmouseover="showTip(event, 'fs45', 66)" class="i">rules</span><span class="o">:</span> (<span onmouseout="hideTip(event, 'fs25', 67)" onmouseover="showTip(event, 'fs25', 67)" class="t">Order</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs30', 68)" onmouseover="showTip(event, 'fs30', 68)" class="t">string</span> <span onmouseout="hideTip(event, 'fs46', 69)" onmouseover="showTip(event, 'fs46', 69)" class="t">option</span>) <span onmouseout="hideTip(event, 'fs47', 70)" onmouseover="showTip(event, 'fs47', 70)" class="t">seq</span>) (<span onmouseout="hideTip(event, 'fs48', 71)" onmouseover="showTip(event, 'fs48', 71)" class="i">o</span><span class="o">:</span> <span onmouseout="hideTip(event, 'fs25', 72)" onmouseover="showTip(event, 'fs25', 72)" class="t">Order</span>) <span class="o">=</span>
-    <span onmouseout="hideTip(event, 'fs45', 73)" onmouseover="showTip(event, 'fs45', 73)" class="i">rules</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs49', 74)" onmouseover="showTip(event, 'fs49', 74)" class="t">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs50', 75)" onmouseover="showTip(event, 'fs50', 75)" class="f">choose</span> (<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs51', 76)" onmouseover="showTip(event, 'fs51', 76)" class="f">rule</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs51', 77)" onmouseover="showTip(event, 'fs51', 77)" class="f">rule</span> <span class="i">item</span>)
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs39', 56)" onmouseover="showTip(event, 'fs39', 56)" class="f">fib</span> (<span onmouseout="hideTip(event, 'fs40', 57)" onmouseover="showTip(event, 'fs40', 57)" class="i">n</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs41', 58)" onmouseover="showTip(event, 'fs41', 58)" class="t">int64</span>) <span class="o">=</span>
+  <span class="k">let</span> <span class="k">rec</span> <span onmouseout="hideTip(event, 'fs42', 59)" onmouseover="showTip(event, 'fs42', 59)" class="f">loop</span> <span onmouseout="hideTip(event, 'fs43', 60)" onmouseover="showTip(event, 'fs43', 60)" class="i">x</span> <span class="o">=</span>
+    <span class="k">if</span> <span onmouseout="hideTip(event, 'fs43', 61)" onmouseover="showTip(event, 'fs43', 61)" class="i">x</span> <span class="o">&lt;=</span> <span class="n">1L</span> <span class="k">then</span> <span onmouseout="hideTip(event, 'fs43', 62)" onmouseover="showTip(event, 'fs43', 62)" class="i">x</span>
+    <span class="k">else</span>
+      <span onmouseout="hideTip(event, 'fs42', 63)" onmouseover="showTip(event, 'fs42', 63)" class="f">loop</span> (<span onmouseout="hideTip(event, 'fs43', 64)" onmouseover="showTip(event, 'fs43', 64)" class="i">x</span><span class="o">-</span><span class="n">1L</span>) <span class="o">+</span> <span onmouseout="hideTip(event, 'fs42', 65)" onmouseover="showTip(event, 'fs42', 65)" class="f">loop</span> (<span onmouseout="hideTip(event, 'fs43', 66)" onmouseover="showTip(event, 'fs43', 66)" class="i">x</span><span class="o">-</span><span class="n">2L</span>)
+  <span onmouseout="hideTip(event, 'fs42', 67)" onmouseover="showTip(event, 'fs42', 67)" class="f">loop</span> <span onmouseout="hideTip(event, 'fs40', 68)" onmouseover="showTip(event, 'fs40', 68)" class="i">n</span>
 </code></pre></td>
 </tr>
 </table>
 </section>
 <section >
-<h3>Composition</h3>
+<h3>Recursion Improved</h3>
 <ul>
-<li>
-Combine functions to build new functions using: <code>&gt;&gt;</code>
-<ul>
-<li>Think lego blocks</li>
-</ul>
-</li>
+<li>Tail Call Optimized</li>
+<li>Memoization</li>
 </ul>
 </section>
 </section>
@@ -408,26 +383,26 @@ Combine functions to build new functions using: <code>&gt;&gt;</code>
 <span class="l">2: </span>
 <span class="l">3: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">match</span> <span onmouseout="hideTip(event, 'fs13', 78)" onmouseover="showTip(event, 'fs13', 78)" class="i">System</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs52', 79)" onmouseover="showTip(event, 'fs52', 79)" class="t">Decimal</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs53', 80)" onmouseover="showTip(event, 'fs53', 80)" class="f">TryParse</span> <span class="s">&quot;3.14159&quot;</span> <span class="k">with</span>
-| <span class="k">true</span>, <span onmouseout="hideTip(event, 'fs54', 81)" onmouseover="showTip(event, 'fs54', 81)" class="i">v</span>  <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs54', 82)" onmouseover="showTip(event, 'fs54', 82)" class="i">v</span>
-| <span class="k">false</span>, _ <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs55', 83)" onmouseover="showTip(event, 'fs55', 83)" class="f">failwith</span> <span class="s">&quot;Womp womp&quot;</span> 
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">match</span> <span onmouseout="hideTip(event, 'fs13', 69)" onmouseover="showTip(event, 'fs13', 69)" class="i">System</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs44', 70)" onmouseover="showTip(event, 'fs44', 70)" class="t">Decimal</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs45', 71)" onmouseover="showTip(event, 'fs45', 71)" class="f">TryParse</span> <span class="s">&quot;3.14159&quot;</span> <span class="k">with</span>
+| <span class="k">true</span>, <span onmouseout="hideTip(event, 'fs46', 72)" onmouseover="showTip(event, 'fs46', 72)" class="i">v</span>  <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs46', 73)" onmouseover="showTip(event, 'fs46', 73)" class="i">v</span>
+| <span class="k">false</span>, _ <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs47', 74)" onmouseover="showTip(event, 'fs47', 74)" class="f">failwith</span> <span class="s">&quot;Womp womp&quot;</span> 
 </code></pre></td>
 </tr>
 </table>
 </section>
 <section >
-<h3>Matching Records and Lists</h3>
+<h3>Matching Lists</h3>
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 <span class="l">2: </span>
 <span class="l">3: </span>
 <span class="l">4: </span>
 <span class="l">5: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs56', 84)" onmouseover="showTip(event, 'fs56', 84)" class="f">printFirstItems</span> {<span onmouseout="hideTip(event, 'fs25', 85)" onmouseover="showTip(event, 'fs25', 85)" class="t">Order</span><span class="o">.</span><span class="i">OrderItems</span><span class="o">=</span><span onmouseout="hideTip(event, 'fs57', 86)" onmouseover="showTip(event, 'fs57', 86)" class="i">orderItems</span>} <span class="o">=</span> 
-  <span class="k">match</span> <span class="i">orderItems</span> <span class="k">with</span>
-  | []          <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs9', 87)" onmouseover="showTip(event, 'fs9', 87)" class="f">printfn</span> <span class="s">&quot;No Items&quot;</span>
-  | [<span onmouseout="hideTip(event, 'fs58', 88)" onmouseover="showTip(event, 'fs58', 88)" class="i">x</span>]         <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs9', 89)" onmouseover="showTip(event, 'fs9', 89)" class="f">printfn</span> <span class="s">&quot;Only Item: </span><span class="pf">%s</span><span class="s">&quot;</span> <span onmouseout="hideTip(event, 'fs58', 90)" onmouseover="showTip(event, 'fs58', 90)" class="i">x</span>
-  | <span onmouseout="hideTip(event, 'fs58', 91)" onmouseover="showTip(event, 'fs58', 91)" class="i">x</span> <span class="o">::</span> <span onmouseout="hideTip(event, 'fs59', 92)" onmouseover="showTip(event, 'fs59', 92)" class="i">y</span> <span class="o">::</span> _ <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs9', 93)" onmouseover="showTip(event, 'fs9', 93)" class="f">printfn</span> <span class="s">&quot;First 2: </span><span class="pf">%s</span><span class="s"> and </span><span class="pf">%s</span><span class="s">&quot;</span> <span onmouseout="hideTip(event, 'fs58', 94)" onmouseover="showTip(event, 'fs58', 94)" class="i">x</span> <span onmouseout="hideTip(event, 'fs59', 95)" onmouseover="showTip(event, 'fs59', 95)" class="i">y</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs48', 75)" onmouseover="showTip(event, 'fs48', 75)" class="f">printFirstItems</span> (<span onmouseout="hideTip(event, 'fs49', 76)" onmouseover="showTip(event, 'fs49', 76)" class="i">order</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs25', 77)" onmouseover="showTip(event, 'fs25', 77)" class="t">Order</span>) <span class="o">=</span> 
+  <span class="k">match</span> <span onmouseout="hideTip(event, 'fs49', 78)" onmouseover="showTip(event, 'fs49', 78)" class="i">order</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs29', 79)" onmouseover="showTip(event, 'fs29', 79)" class="i">OrderItems</span> <span class="k">with</span>
+  | []          <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs9', 80)" onmouseover="showTip(event, 'fs9', 80)" class="f">printfn</span> <span class="s">&quot;No Items&quot;</span>
+  | [<span onmouseout="hideTip(event, 'fs50', 81)" onmouseover="showTip(event, 'fs50', 81)" class="i">x</span>]         <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs9', 82)" onmouseover="showTip(event, 'fs9', 82)" class="f">printfn</span> <span class="s">&quot;Only Item: </span><span class="pf">%s</span><span class="s">&quot;</span> <span onmouseout="hideTip(event, 'fs50', 83)" onmouseover="showTip(event, 'fs50', 83)" class="i">x</span>
+  | <span onmouseout="hideTip(event, 'fs50', 84)" onmouseover="showTip(event, 'fs50', 84)" class="i">x</span> <span class="o">::</span> <span onmouseout="hideTip(event, 'fs51', 85)" onmouseover="showTip(event, 'fs51', 85)" class="i">y</span> <span class="o">::</span> _ <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs9', 86)" onmouseover="showTip(event, 'fs9', 86)" class="f">printfn</span> <span class="s">&quot;First 2: </span><span class="pf">%s</span><span class="s"> and </span><span class="pf">%s</span><span class="s">&quot;</span> <span onmouseout="hideTip(event, 'fs50', 87)" onmouseover="showTip(event, 'fs50', 87)" class="i">x</span> <span onmouseout="hideTip(event, 'fs51', 88)" onmouseover="showTip(event, 'fs51', 88)" class="i">y</span>
 </code></pre></td>
 </tr>
 </table>
@@ -444,38 +419,15 @@ Combine functions to build new functions using: <code>&gt;&gt;</code>
 <span class="l">8: </span>
 <span class="l">9: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs60', 96)" onmouseover="showTip(event, 'fs60', 96)" class="f">printResult</span> <span onmouseout="hideTip(event, 'fs61', 97)" onmouseover="showTip(event, 'fs61', 97)" class="i">result</span> <span class="o">=</span>
-  <span class="k">match</span> <span onmouseout="hideTip(event, 'fs61', 98)" onmouseover="showTip(event, 'fs61', 98)" class="i">result</span> <span class="k">with</span>
-  | <span onmouseout="hideTip(event, 'fs35', 99)" onmouseover="showTip(event, 'fs35', 99)" class="p">OK</span> <span onmouseout="hideTip(event, 'fs62', 100)" onmouseover="showTip(event, 'fs62', 100)" class="i">data</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs9', 101)" onmouseover="showTip(event, 'fs9', 101)" class="f">printfn</span> <span class="s">&quot;Everything Worked for: </span><span class="pf">%A</span><span class="s">&quot;</span> <span onmouseout="hideTip(event, 'fs62', 102)" onmouseover="showTip(event, 'fs62', 102)" class="i">data</span>
-  | <span onmouseout="hideTip(event, 'fs36', 103)" onmouseover="showTip(event, 'fs36', 103)" class="p">Fail</span> [] <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs9', 104)" onmouseover="showTip(event, 'fs9', 104)" class="f">printfn</span> <span class="s">&quot;It&#39;s fine&quot;</span>
-  | <span onmouseout="hideTip(event, 'fs36', 105)" onmouseover="showTip(event, 'fs36', 105)" class="p">Fail</span> <span onmouseout="hideTip(event, 'fs63', 106)" onmouseover="showTip(event, 'fs63', 106)" class="i">es</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs9', 107)" onmouseover="showTip(event, 'fs9', 107)" class="f">printfn</span> <span class="s">&quot;Errors were reported:&quot;</span> 
-                   <span onmouseout="hideTip(event, 'fs63', 108)" onmouseover="showTip(event, 'fs63', 108)" class="i">es</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs64', 109)" onmouseover="showTip(event, 'fs64', 109)" class="t">List</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs65', 110)" onmouseover="showTip(event, 'fs65', 110)" class="f">iter</span> 
-                        (<span class="k">fun</span> (<span onmouseout="hideTip(event, 'fs66', 111)" onmouseover="showTip(event, 'fs66', 111)" class="i">p</span>,<span onmouseout="hideTip(event, 'fs67', 112)" onmouseover="showTip(event, 'fs67', 112)" class="i">m</span>) <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs9', 113)" onmouseover="showTip(event, 'fs9', 113)" class="f">printfn</span> <span class="s">&quot;- </span><span class="pf">%s</span><span class="s">: </span><span class="pf">%s</span><span class="s">&quot;</span> <span onmouseout="hideTip(event, 'fs66', 114)" onmouseover="showTip(event, 'fs66', 114)" class="i">p</span> <span onmouseout="hideTip(event, 'fs67', 115)" onmouseover="showTip(event, 'fs67', 115)" class="i">m</span>)
-  | <span onmouseout="hideTip(event, 'fs37', 116)" onmouseover="showTip(event, 'fs37', 116)" class="p">Error</span> <span onmouseout="hideTip(event, 'fs68', 117)" onmouseover="showTip(event, 'fs68', 117)" class="i">e</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs9', 118)" onmouseover="showTip(event, 'fs9', 118)" class="f">printfn</span> <span class="s">&quot;!!System crashed... Reboot!!&quot;</span>
-                   <span onmouseout="hideTip(event, 'fs9', 119)" onmouseover="showTip(event, 'fs9', 119)" class="f">printfn</span> <span class="s">&quot;%A&quot;</span> <span onmouseout="hideTip(event, 'fs68', 120)" onmouseover="showTip(event, 'fs68', 120)" class="i">e</span>
-</code></pre></td>
-</tr>
-</table>
-</section>
-<section >
-<h3>Matching Types</h3>
-<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
-<span class="l">2: </span>
-<span class="l">3: </span>
-<span class="l">4: </span>
-<span class="l">5: </span>
-<span class="l">6: </span>
-<span class="l">7: </span>
-<span class="l">8: </span>
-</pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs69', 121)" onmouseover="showTip(event, 'fs69', 121)" class="f">crash</span> () <span class="o">=</span> 
-  <span class="k">try</span>
-    <span onmouseout="hideTip(event, 'fs55', 122)" onmouseover="showTip(event, 'fs55', 122)" class="f">failwith</span> <span class="s">&quot;This crash was intentional&quot;</span>
-  <span class="k">with</span>
-  | <span class="o">:?</span> <span onmouseout="hideTip(event, 'fs13', 123)" onmouseover="showTip(event, 'fs13', 123)" class="i">System</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs70', 124)" onmouseover="showTip(event, 'fs70', 124)" class="t">DivideByZeroException</span> <span class="k">as</span> <span onmouseout="hideTip(event, 'fs71', 125)" onmouseover="showTip(event, 'fs71', 125)" class="i">e</span> 
-        <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs9', 126)" onmouseover="showTip(event, 'fs9', 126)" class="f">printfn</span> <span class="s">&quot;Div Zero: </span><span class="pf">%s</span><span class="s">&quot;</span> <span onmouseout="hideTip(event, 'fs71', 127)" onmouseover="showTip(event, 'fs71', 127)" class="i">e</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs72', 128)" onmouseover="showTip(event, 'fs72', 128)" class="i">Message</span>
-  | <span class="o">:?</span> <span onmouseout="hideTip(event, 'fs13', 129)" onmouseover="showTip(event, 'fs13', 129)" class="i">System</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs38', 130)" onmouseover="showTip(event, 'fs38', 130)" class="t">Exception</span> <span class="k">as</span> <span onmouseout="hideTip(event, 'fs68', 131)" onmouseover="showTip(event, 'fs68', 131)" class="i">e</span>             
-        <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs9', 132)" onmouseover="showTip(event, 'fs9', 132)" class="f">printfn</span> <span class="s">&quot;Exception: </span><span class="pf">%s</span><span class="s">&quot;</span> <span onmouseout="hideTip(event, 'fs68', 133)" onmouseover="showTip(event, 'fs68', 133)" class="i">e</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs72', 134)" onmouseover="showTip(event, 'fs72', 134)" class="i">Message</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs52', 89)" onmouseover="showTip(event, 'fs52', 89)" class="f">printResult</span> <span onmouseout="hideTip(event, 'fs53', 90)" onmouseover="showTip(event, 'fs53', 90)" class="i">result</span> <span class="o">=</span>
+  <span class="k">match</span> <span onmouseout="hideTip(event, 'fs53', 91)" onmouseover="showTip(event, 'fs53', 91)" class="i">result</span> <span class="k">with</span>
+  | <span onmouseout="hideTip(event, 'fs35', 92)" onmouseover="showTip(event, 'fs35', 92)" class="p">OK</span>      <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs9', 93)" onmouseover="showTip(event, 'fs9', 93)" class="f">printfn</span> <span class="s">&quot;Everything Worked&quot;</span>
+  | <span onmouseout="hideTip(event, 'fs36', 94)" onmouseover="showTip(event, 'fs36', 94)" class="p">Fail</span> [] <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs9', 95)" onmouseover="showTip(event, 'fs9', 95)" class="f">printfn</span> <span class="s">&quot;It&#39;s fine&quot;</span>
+  | <span onmouseout="hideTip(event, 'fs36', 96)" onmouseover="showTip(event, 'fs36', 96)" class="p">Fail</span> <span onmouseout="hideTip(event, 'fs54', 97)" onmouseover="showTip(event, 'fs54', 97)" class="i">es</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs9', 98)" onmouseover="showTip(event, 'fs9', 98)" class="f">printfn</span> <span class="s">&quot;Errors were reported:&quot;</span> 
+                   <span onmouseout="hideTip(event, 'fs54', 99)" onmouseover="showTip(event, 'fs54', 99)" class="i">es</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs55', 100)" onmouseover="showTip(event, 'fs55', 100)" class="t">List</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs56', 101)" onmouseover="showTip(event, 'fs56', 101)" class="f">iter</span> 
+                        (<span class="k">fun</span> (<span onmouseout="hideTip(event, 'fs57', 102)" onmouseover="showTip(event, 'fs57', 102)" class="i">p</span>,<span onmouseout="hideTip(event, 'fs58', 103)" onmouseover="showTip(event, 'fs58', 103)" class="i">m</span>) <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs9', 104)" onmouseover="showTip(event, 'fs9', 104)" class="f">printfn</span> <span class="s">&quot;- </span><span class="pf">%s</span><span class="s">: </span><span class="pf">%s</span><span class="s">&quot;</span> <span onmouseout="hideTip(event, 'fs57', 105)" onmouseover="showTip(event, 'fs57', 105)" class="i">p</span> <span onmouseout="hideTip(event, 'fs58', 106)" onmouseover="showTip(event, 'fs58', 106)" class="i">m</span>)
+  | <span onmouseout="hideTip(event, 'fs37', 107)" onmouseover="showTip(event, 'fs37', 107)" class="p">Error</span> <span onmouseout="hideTip(event, 'fs59', 108)" onmouseover="showTip(event, 'fs59', 108)" class="i">e</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs9', 109)" onmouseover="showTip(event, 'fs9', 109)" class="f">printfn</span> <span class="s">&quot;!!System crashed... Reboot!!&quot;</span>
+                   <span onmouseout="hideTip(event, 'fs9', 110)" onmouseover="showTip(event, 'fs9', 110)" class="f">printfn</span> <span class="s">&quot;%A&quot;</span> <span onmouseout="hideTip(event, 'fs59', 111)" onmouseover="showTip(event, 'fs59', 111)" class="i">e</span>
 </code></pre></td>
 </tr>
 </table>
@@ -501,62 +453,28 @@ Combine functions to build new functions using: <code>&gt;&gt;</code>
 </ul>
 </section>
 <section >
-<h3>Transform Pattern</h3>
-<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
-<span class="l">2: </span>
-<span class="l">3: </span>
-<span class="l">4: </span>
-<span class="l">5: </span>
-<span class="l">6: </span>
-<span class="l">7: </span>
-</pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> (|<span class="p">DayMonth</span>|) (<span onmouseout="hideTip(event, 'fs73', 135)" onmouseover="showTip(event, 'fs73', 135)" class="i">date</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs13', 136)" onmouseover="showTip(event, 'fs13', 136)" class="i">System</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs74', 137)" onmouseover="showTip(event, 'fs74', 137)" class="t">DateTime</span>) <span class="o">=</span> 
-  <span onmouseout="hideTip(event, 'fs73', 138)" onmouseover="showTip(event, 'fs73', 138)" class="i">date</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs75', 139)" onmouseover="showTip(event, 'fs75', 139)" class="i">Day</span>, <span onmouseout="hideTip(event, 'fs73', 140)" onmouseover="showTip(event, 'fs73', 140)" class="i">date</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs76', 141)" onmouseover="showTip(event, 'fs76', 141)" class="i">Month</span>
-
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs77', 142)" onmouseover="showTip(event, 'fs77', 142)" class="f">printSpecial</span> <span class="o">=</span> <span class="k">function</span>
-  | <span onmouseout="hideTip(event, 'fs78', 143)" onmouseover="showTip(event, 'fs78', 143)" class="p">DayMonth</span> (<span class="n">29</span>, <span class="n">2</span>) <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs9', 144)" onmouseover="showTip(event, 'fs9', 144)" class="f">printfn</span> <span class="s">&quot;Leap Day&quot;</span>
-  | <span onmouseout="hideTip(event, 'fs78', 145)" onmouseover="showTip(event, 'fs78', 145)" class="p">DayMonth</span> (<span class="n">1</span>, <span class="n">1</span>)  <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs9', 146)" onmouseover="showTip(event, 'fs9', 146)" class="f">printfn</span> <span class="s">&quot;Infosec Birthdays&quot;</span>
-  | _                <span class="k">-&gt;</span> ()
-</code></pre></td>
-</tr>
-</table>
-</section>
-<section >
 <h3>Partial Pattern / Parameterized</h3>
-<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
-<span class="l">2: </span>
-<span class="l">3: </span>
-<span class="l">4: </span>
-<span class="l">5: </span>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> (|<span class="p">StringsMatch</span>|_|) (<span onmouseout="hideTip(event, 'fs79', 147)" onmouseover="showTip(event, 'fs79', 147)" class="i">patterns</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs30', 148)" onmouseover="showTip(event, 'fs30', 148)" class="t">string</span> <span onmouseout="hideTip(event, 'fs47', 149)" onmouseover="showTip(event, 'fs47', 149)" class="t">seq</span>) <span onmouseout="hideTip(event, 'fs80', 150)" onmouseover="showTip(event, 'fs80', 150)" class="i">v</span> <span class="o">=</span>
-  <span class="k">let</span> <span onmouseout="hideTip(event, 'fs81', 151)" onmouseover="showTip(event, 'fs81', 151)" class="i">c</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs80', 152)" onmouseover="showTip(event, 'fs80', 152)" class="i">v</span>, <span class="i">StringComparison</span><span class="o">.</span><span class="i">CurrentCultureIgnoreCase</span>
-  <span class="k">if</span> <span onmouseout="hideTip(event, 'fs79', 153)" onmouseover="showTip(event, 'fs79', 153)" class="i">patterns</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs49', 154)" onmouseover="showTip(event, 'fs49', 154)" class="t">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs82', 155)" onmouseover="showTip(event, 'fs82', 155)" class="f">exists</span> (<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs66', 156)" onmouseover="showTip(event, 'fs66', 156)" class="i">p</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs66', 157)" onmouseover="showTip(event, 'fs66', 157)" class="i">p</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs83', 158)" onmouseover="showTip(event, 'fs83', 158)" class="f">Equals</span> <span onmouseout="hideTip(event, 'fs81', 159)" onmouseover="showTip(event, 'fs81', 159)" class="i">c</span>)
-  <span class="k">then</span> <span onmouseout="hideTip(event, 'fs84', 160)" onmouseover="showTip(event, 'fs84', 160)" class="p">Some</span> (<span onmouseout="hideTip(event, 'fs80', 161)" onmouseover="showTip(event, 'fs80', 161)" class="i">v</span><span class="o">.</span><span class="i">ToUpper</span>())
-  <span class="k">else</span> <span onmouseout="hideTip(event, 'fs85', 162)" onmouseover="showTip(event, 'fs85', 162)" class="p">None</span>
-</code></pre></td>
-</tr>
-</table>
-</section>
-<section >
-<h3>Complete Pattern</h3>
-<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
-<span class="l">2: </span>
-<span class="l">3: </span>
-<span class="l">4: </span>
-<span class="l">5: </span>
-<span class="l">6: </span>
-<span class="l">7: </span>
-<span class="l">8: </span>
-</pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> (|<span class="p">Shipping</span>|<span class="p">Holiday</span>|<span class="p">Weekend</span>|) <span onmouseout="hideTip(event, 'fs73', 163)" onmouseover="showTip(event, 'fs73', 163)" class="i">date</span> <span class="o">=</span>
-  <span class="k">let</span> <span onmouseout="hideTip(event, 'fs86', 164)" onmouseover="showTip(event, 'fs86', 164)" class="i">holidays</span> <span class="o">=</span> [(<span class="n">1</span>,<span class="n">1</span>)]
-  <span class="k">let</span> (<span onmouseout="hideTip(event, 'fs78', 165)" onmouseover="showTip(event, 'fs78', 165)" class="p">DayMonth</span> <span onmouseout="hideTip(event, 'fs87', 166)" onmouseover="showTip(event, 'fs87', 166)" class="i">dm</span>) <span class="o">=</span> <span onmouseout="hideTip(event, 'fs73', 167)" onmouseover="showTip(event, 'fs73', 167)" class="i">date</span>
-  <span class="k">if</span> <span onmouseout="hideTip(event, 'fs86', 168)" onmouseover="showTip(event, 'fs86', 168)" class="i">holidays</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs49', 169)" onmouseover="showTip(event, 'fs49', 169)" class="t">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs82', 170)" onmouseover="showTip(event, 'fs82', 170)" class="f">exists</span> ((<span class="o">=</span>) <span onmouseout="hideTip(event, 'fs87', 171)" onmouseover="showTip(event, 'fs87', 171)" class="i">dm</span>) <span class="k">then</span> <span class="p">Holiday</span>
-  <span class="k">elif</span> [<span class="i">DayOfWeek</span><span class="o">.</span><span class="i">Saturday</span>; <span class="i">DayOfWeek</span><span class="o">.</span><span class="i">Sunday</span>]
-       <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs49', 172)" onmouseover="showTip(event, 'fs49', 172)" class="t">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs82', 173)" onmouseover="showTip(event, 'fs82', 173)" class="f">exists</span> ((<span class="o">=</span>) <span onmouseout="hideTip(event, 'fs73', 174)" onmouseover="showTip(event, 'fs73', 174)" class="i">date</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs88', 175)" onmouseover="showTip(event, 'fs88', 175)" class="i">DayOfWeek</span>)
-  <span class="k">then</span> <span class="p">Weekend</span>
-  <span class="k">else</span> <span class="p">Shipping</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">open</span> <span onmouseout="hideTip(event, 'fs13', 112)" onmouseover="showTip(event, 'fs13', 112)" class="i">System</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs60', 113)" onmouseover="showTip(event, 'fs60', 113)" class="i">Text</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs61', 114)" onmouseover="showTip(event, 'fs61', 114)" class="i">RegularExpressions</span>
+
+<span class="k">let</span> (|<span class="p">RegexMatch</span>|_|) (<span onmouseout="hideTip(event, 'fs62', 115)" onmouseover="showTip(event, 'fs62', 115)" class="i">pattern</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs30', 116)" onmouseover="showTip(event, 'fs30', 116)" class="t">string</span>) <span onmouseout="hideTip(event, 'fs63', 117)" onmouseover="showTip(event, 'fs63', 117)" class="i">v</span> <span class="o">=</span>
+  <span class="k">let</span> <span onmouseout="hideTip(event, 'fs64', 118)" onmouseover="showTip(event, 'fs64', 118)" class="i">m</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs65', 119)" onmouseover="showTip(event, 'fs65', 119)" class="t">Regex</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs66', 120)" onmouseover="showTip(event, 'fs66', 120)" class="f">Match</span> (<span onmouseout="hideTip(event, 'fs63', 121)" onmouseover="showTip(event, 'fs63', 121)" class="i">v</span>, <span onmouseout="hideTip(event, 'fs62', 122)" onmouseover="showTip(event, 'fs62', 122)" class="i">pattern</span>)
+  <span class="k">if</span> <span onmouseout="hideTip(event, 'fs64', 123)" onmouseover="showTip(event, 'fs64', 123)" class="i">m</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs67', 124)" onmouseover="showTip(event, 'fs67', 124)" class="i">Success</span>
+  <span class="k">then</span> [ <span class="k">for</span> <span onmouseout="hideTip(event, 'fs68', 125)" onmouseover="showTip(event, 'fs68', 125)" class="i">x</span> <span class="k">in</span> <span onmouseout="hideTip(event, 'fs64', 126)" onmouseover="showTip(event, 'fs64', 126)" class="i">m</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs69', 127)" onmouseover="showTip(event, 'fs69', 127)" class="i">Groups</span> <span class="k">do</span> 
+             <span class="k">yield</span> <span onmouseout="hideTip(event, 'fs68', 128)" onmouseover="showTip(event, 'fs68', 128)" class="i">x</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs70', 129)" onmouseover="showTip(event, 'fs70', 129)" class="i">Value</span> ] 
+       <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs55', 130)" onmouseover="showTip(event, 'fs55', 130)" class="t">List</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs71', 131)" onmouseover="showTip(event, 'fs71', 131)" class="f">skip</span> <span class="n">1</span>   
+       <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs72', 132)" onmouseover="showTip(event, 'fs72', 132)" class="p">Some</span>
+  <span class="k">else</span> <span onmouseout="hideTip(event, 'fs73', 133)" onmouseover="showTip(event, 'fs73', 133)" class="p">None</span>
 </code></pre></td>
 </tr>
 </table>
@@ -580,23 +498,35 @@ Combine functions to build new functions using: <code>&gt;&gt;</code>
 </section>
 <section >
 <h3>Ensure Correctness</h3>
-<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
-<span class="l">2: </span>
-<span class="l">3: </span>
-<span class="l">4: </span>
-<span class="l">5: </span>
-<span class="l">6: </span>
-<span class="l">7: </span>
-<span class="l">8: </span>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+<span class="l">11: </span>
+<span class="l">12: </span>
+<span class="l">13: </span>
+<span class="l">14: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span onmouseout="hideTip(event, 'fs89', 176)" onmouseover="showTip(event, 'fs89', 176)" class="t">Address</span> <span class="o">=</span> 
-    { <span onmouseout="hideTip(event, 'fs90', 177)" onmouseover="showTip(event, 'fs90', 177)" class="i">Address1</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs30', 178)" onmouseover="showTip(event, 'fs30', 178)" class="t">string</span>
-      <span onmouseout="hideTip(event, 'fs91', 179)" onmouseover="showTip(event, 'fs91', 179)" class="i">City</span>     <span class="o">:</span> <span onmouseout="hideTip(event, 'fs30', 180)" onmouseover="showTip(event, 'fs30', 180)" class="t">string</span> }
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span onmouseout="hideTip(event, 'fs74', 134)" onmouseover="showTip(event, 'fs74', 134)" class="t">EmailAddress</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs30', 135)" onmouseover="showTip(event, 'fs30', 135)" class="t">string</span> 
 
-<span class="k">type</span> <span onmouseout="hideTip(event, 'fs92', 181)" onmouseover="showTip(event, 'fs92', 181)" class="t">VerifiedAddress</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs92', 182)" onmouseover="showTip(event, 'fs92', 182)" class="p">VerifiedAddress</span> <span class="k">of</span> <span onmouseout="hideTip(event, 'fs89', 183)" onmouseover="showTip(event, 'fs89', 183)" class="t">Address</span>
+<span class="k">type</span> <span onmouseout="hideTip(event, 'fs75', 136)" onmouseover="showTip(event, 'fs75', 136)" class="t">VerifiedAddress</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs75', 137)" onmouseover="showTip(event, 'fs75', 137)" class="p">VerifiedAddress</span> <span class="k">of</span> <span onmouseout="hideTip(event, 'fs74', 138)" onmouseover="showTip(event, 'fs74', 138)" class="t">EmailAddress</span>
 
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs93', 184)" onmouseover="showTip(event, 'fs93', 184)" class="f">shipOrder</span> (<span onmouseout="hideTip(event, 'fs92', 185)" onmouseover="showTip(event, 'fs92', 185)" class="p">VerifiedAddress</span> <span onmouseout="hideTip(event, 'fs94', 186)" onmouseover="showTip(event, 'fs94', 186)" class="i">address</span>) <span class="o">=</span> 
-    <span onmouseout="hideTip(event, 'fs9', 187)" onmouseover="showTip(event, 'fs9', 187)" class="f">printfn</span> <span class="s">&quot;Verified Addresses: </span><span class="pf">%A</span><span class="s">&quot;</span> <span class="i">address</span>
+<span class="k">type</span> <span onmouseout="hideTip(event, 'fs76', 139)" onmouseover="showTip(event, 'fs76', 139)" class="t">EmailContact</span> <span class="o">=</span>
+    | <span onmouseout="hideTip(event, 'fs77', 140)" onmouseover="showTip(event, 'fs77', 140)" class="p">Unverified</span> <span class="k">of</span> <span onmouseout="hideTip(event, 'fs74', 141)" onmouseover="showTip(event, 'fs74', 141)" class="t">EmailAddress</span>
+    | <span onmouseout="hideTip(event, 'fs78', 142)" onmouseover="showTip(event, 'fs78', 142)" class="p">Verified</span> <span class="k">of</span> <span onmouseout="hideTip(event, 'fs75', 143)" onmouseover="showTip(event, 'fs75', 143)" class="t">VerifiedAddress</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs79', 144)" onmouseover="showTip(event, 'fs79', 144)" class="f">verifyEmailAddress</span> (<span class="i">emailAddress</span> <span class="o">*</span> <span class="i">isVerified</span>) <span class="o">=</span>
+    <span class="k">if</span> <span class="i">isVerified</span> <span class="k">then</span> <span onmouseout="hideTip(event, 'fs72', 145)" onmouseover="showTip(event, 'fs72', 145)" class="p">Some</span> (<span onmouseout="hideTip(event, 'fs75', 146)" onmouseover="showTip(event, 'fs75', 146)" class="p">VerifiedAddress</span> <span class="i">emailAddress</span>)
+    <span class="k">else</span> <span onmouseout="hideTip(event, 'fs73', 147)" onmouseover="showTip(event, 'fs73', 147)" class="p">None</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs80', 148)" onmouseover="showTip(event, 'fs80', 148)" class="f">sendPasswordReset</span> (<span onmouseout="hideTip(event, 'fs75', 149)" onmouseover="showTip(event, 'fs75', 149)" class="p">VerifiedAddress</span> <span onmouseout="hideTip(event, 'fs81', 150)" onmouseover="showTip(event, 'fs81', 150)" class="i">email</span>) <span class="o">=</span> 
+    <span onmouseout="hideTip(event, 'fs9', 151)" onmouseover="showTip(event, 'fs9', 151)" class="f">printfn</span> <span class="s">&quot;Password reset sent to: </span><span class="pf">%s</span><span class="s">&quot;</span> <span class="i">email</span>
 </code></pre></td>
 </tr>
 </table>
@@ -631,10 +561,10 @@ using control flow constructs and bindings.</p>
 <span class="l">4: </span>
 <span class="l">5: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs12', 188)" onmouseover="showTip(event, 'fs12', 188)" class="i">req</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs13', 189)" onmouseover="showTip(event, 'fs13', 189)" class="i">System</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs14', 190)" onmouseover="showTip(event, 'fs14', 190)" class="i">Net</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs95', 191)" onmouseover="showTip(event, 'fs95', 191)" class="t">HttpWebRequest</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs16', 192)" onmouseover="showTip(event, 'fs16', 192)" class="f">Create</span>(<span class="s">&quot;https://google.ca&quot;</span>)
-<span onmouseout="hideTip(event, 'fs96', 193)" onmouseover="showTip(event, 'fs96', 193)" class="i">async</span> { 
-   <span class="k">use!</span> <span onmouseout="hideTip(event, 'fs97', 194)" onmouseover="showTip(event, 'fs97', 194)" class="i">resp</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs12', 195)" onmouseover="showTip(event, 'fs12', 195)" class="i">req</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs98', 196)" onmouseover="showTip(event, 'fs98', 196)" class="f">AsyncGetResponse</span> ()
-   <span onmouseout="hideTip(event, 'fs9', 197)" onmouseover="showTip(event, 'fs9', 197)" class="f">printfn</span> <span class="s">&quot;Downloaded %0&quot;</span> <span onmouseout="hideTip(event, 'fs97', 198)" onmouseover="showTip(event, 'fs97', 198)" class="i">resp</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs99', 199)" onmouseover="showTip(event, 'fs99', 199)" class="i">ResponseUri</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs12', 152)" onmouseover="showTip(event, 'fs12', 152)" class="i">req</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs13', 153)" onmouseover="showTip(event, 'fs13', 153)" class="i">System</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs14', 154)" onmouseover="showTip(event, 'fs14', 154)" class="i">Net</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs82', 155)" onmouseover="showTip(event, 'fs82', 155)" class="t">HttpWebRequest</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs16', 156)" onmouseover="showTip(event, 'fs16', 156)" class="f">Create</span>(<span class="s">&quot;https://google.ca&quot;</span>)
+<span onmouseout="hideTip(event, 'fs83', 157)" onmouseover="showTip(event, 'fs83', 157)" class="i">async</span> { 
+   <span class="k">use!</span> <span onmouseout="hideTip(event, 'fs84', 158)" onmouseover="showTip(event, 'fs84', 158)" class="i">resp</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs12', 159)" onmouseover="showTip(event, 'fs12', 159)" class="i">req</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs85', 160)" onmouseover="showTip(event, 'fs85', 160)" class="f">AsyncGetResponse</span> ()
+   <span onmouseout="hideTip(event, 'fs9', 161)" onmouseover="showTip(event, 'fs9', 161)" class="f">printfn</span> <span class="s">&quot;Downloaded %0&quot;</span> <span onmouseout="hideTip(event, 'fs84', 162)" onmouseover="showTip(event, 'fs84', 162)" class="i">resp</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs86', 163)" onmouseover="showTip(event, 'fs86', 163)" class="i">ResponseUri</span>
 }
 </code></pre></td>
 </tr>
@@ -650,13 +580,13 @@ using control flow constructs and bindings.</p>
 <span class="l">6: </span>
 <span class="l">7: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs100', 200)" onmouseover="showTip(event, 'fs100', 200)" class="i">fib</span> <span class="o">=</span> 
-   <span class="k">let</span> <span class="k">rec</span> <span onmouseout="hideTip(event, 'fs101', 201)" onmouseover="showTip(event, 'fs101', 201)" class="f">fib&#39;</span> <span onmouseout="hideTip(event, 'fs40', 202)" onmouseover="showTip(event, 'fs40', 202)" class="i">x</span> <span onmouseout="hideTip(event, 'fs41', 203)" onmouseover="showTip(event, 'fs41', 203)" class="i">y</span> <span class="o">=</span>
-      <span onmouseout="hideTip(event, 'fs47', 204)" onmouseover="showTip(event, 'fs47', 204)" class="i">seq</span> {
-         <span class="k">yield</span>  <span onmouseout="hideTip(event, 'fs41', 205)" onmouseover="showTip(event, 'fs41', 205)" class="i">y</span>
-         <span class="k">yield!</span> <span onmouseout="hideTip(event, 'fs101', 206)" onmouseover="showTip(event, 'fs101', 206)" class="f">fib&#39;</span> <span onmouseout="hideTip(event, 'fs41', 207)" onmouseover="showTip(event, 'fs41', 207)" class="i">y</span> (<span onmouseout="hideTip(event, 'fs40', 208)" onmouseover="showTip(event, 'fs40', 208)" class="i">x</span> <span class="o">+</span> <span onmouseout="hideTip(event, 'fs41', 209)" onmouseover="showTip(event, 'fs41', 209)" class="i">y</span>)
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs87', 164)" onmouseover="showTip(event, 'fs87', 164)" class="i">fib</span> <span class="o">=</span> 
+   <span class="k">let</span> <span class="k">rec</span> <span onmouseout="hideTip(event, 'fs88', 165)" onmouseover="showTip(event, 'fs88', 165)" class="f">fib&#39;</span> <span onmouseout="hideTip(event, 'fs89', 166)" onmouseover="showTip(event, 'fs89', 166)" class="i">x</span> <span onmouseout="hideTip(event, 'fs90', 167)" onmouseover="showTip(event, 'fs90', 167)" class="i">y</span> <span class="o">=</span>
+      <span onmouseout="hideTip(event, 'fs91', 168)" onmouseover="showTip(event, 'fs91', 168)" class="i">seq</span> {
+         <span class="k">yield</span>  <span onmouseout="hideTip(event, 'fs90', 169)" onmouseover="showTip(event, 'fs90', 169)" class="i">y</span>
+         <span class="k">yield!</span> <span onmouseout="hideTip(event, 'fs88', 170)" onmouseover="showTip(event, 'fs88', 170)" class="f">fib&#39;</span> <span onmouseout="hideTip(event, 'fs90', 171)" onmouseover="showTip(event, 'fs90', 171)" class="i">y</span> (<span onmouseout="hideTip(event, 'fs89', 172)" onmouseover="showTip(event, 'fs89', 172)" class="i">x</span> <span class="o">+</span> <span onmouseout="hideTip(event, 'fs90', 173)" onmouseover="showTip(event, 'fs90', 173)" class="i">y</span>)
       }
-   <span onmouseout="hideTip(event, 'fs101', 210)" onmouseover="showTip(event, 'fs101', 210)" class="f">fib&#39;</span> <span class="n">0</span> <span class="n">1</span>
+   <span onmouseout="hideTip(event, 'fs88', 174)" onmouseover="showTip(event, 'fs88', 174)" class="f">fib&#39;</span> <span class="n">0</span> <span class="n">1</span>
 </code></pre></td>
 </tr>
 </table>
@@ -705,8 +635,12 @@ Install
 </li>
 <li>dotnet new F# dll</li>
 <li>Manual configuration</li>
-<li>Cursing</li>
-<li>azure command line publish bug supporting only C#</li>
+<li>
+azure command line publish bug supporting only C#
+<ul>
+<li>5 stages of grief</li>
+</ul>
+</li>
 <li>dotnet publish</li>
 <li>Deploy via VS Code</li>
 <li>Profit?</li>
@@ -740,6 +674,17 @@ Precompiled Azure Functions
 <li><a href="https://discardchanges.com/post/building-azure-functions-with-precompiled-fsharp/">https://discardchanges.com/post/building-azure-functions-with-precompiled-fsharp/</a></li>
 </ul>
 </li>
+<li>
+FSharpx
+<ul>
+<li>
+<a href="https://github.com/fsprojects/FSharpx.Extras">https://github.com/fsprojects/FSharpx.Extras</a>
+<ul>
+<li>Recommend: Prelude.fs</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </section>
 <section >
@@ -751,12 +696,12 @@ Precompiled Azure Functions
 <span class="l">5: </span>
 <span class="l">6: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span onmouseout="hideTip(event, 'fs1', 211)" onmouseover="showTip(event, 'fs1', 211)" class="i">ContactType</span> <span class="o">=</span> | <span onmouseout="hideTip(event, 'fs2', 212)" onmouseover="showTip(event, 'fs2', 212)" class="i">Twitter</span> | <span onmouseout="hideTip(event, 'fs3', 213)" onmouseover="showTip(event, 'fs3', 213)" class="i">Blog</span> | <span onmouseout="hideTip(event, 'fs4', 214)" onmouseover="showTip(event, 'fs4', 214)" class="i">GitHub</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span onmouseout="hideTip(event, 'fs1', 175)" onmouseover="showTip(event, 'fs1', 175)" class="i">ContactType</span> <span class="o">=</span> | <span onmouseout="hideTip(event, 'fs2', 176)" onmouseover="showTip(event, 'fs2', 176)" class="i">Twitter</span> | <span onmouseout="hideTip(event, 'fs3', 177)" onmouseover="showTip(event, 'fs3', 177)" class="i">Blog</span> | <span onmouseout="hideTip(event, 'fs4', 178)" onmouseover="showTip(event, 'fs4', 178)" class="i">GitHub</span>
 
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs5', 215)" onmouseover="showTip(event, 'fs5', 215)" class="f">getContactInfo</span> <span class="o">=</span> <span class="k">function</span>
-  | <span onmouseout="hideTip(event, 'fs2', 216)" onmouseover="showTip(event, 'fs2', 216)" class="p">Twitter</span> <span class="k">-&gt;</span> <span class="s">&quot;@dead_stroke&quot;</span>
-  | <span onmouseout="hideTip(event, 'fs3', 217)" onmouseover="showTip(event, 'fs3', 217)" class="p">Blog</span>    <span class="k">-&gt;</span> <span class="s">&quot;https://geekeh.com&quot;</span>
-  | <span onmouseout="hideTip(event, 'fs4', 218)" onmouseover="showTip(event, 'fs4', 218)" class="p">GitHub</span>  <span class="k">-&gt;</span> <span class="s">&quot;shanecharles&quot;</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs5', 179)" onmouseover="showTip(event, 'fs5', 179)" class="f">getContactInfo</span> <span class="o">=</span> <span class="k">function</span>
+  | <span onmouseout="hideTip(event, 'fs2', 180)" onmouseover="showTip(event, 'fs2', 180)" class="p">Twitter</span> <span class="k">-&gt;</span> <span class="s">&quot;@dead_stroke&quot;</span>
+  | <span onmouseout="hideTip(event, 'fs3', 181)" onmouseover="showTip(event, 'fs3', 181)" class="p">Blog</span>    <span class="k">-&gt;</span> <span class="s">&quot;https://geekeh.com&quot;</span>
+  | <span onmouseout="hideTip(event, 'fs4', 182)" onmouseover="showTip(event, 'fs4', 182)" class="p">GitHub</span>  <span class="k">-&gt;</span> <span class="s">&quot;shanecharles&quot;</span>
 </code></pre></td>
 </tr>
 </table>
