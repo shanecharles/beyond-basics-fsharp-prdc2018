@@ -94,7 +94,6 @@
     req.Timeout <- 30000
 
 ---
-
 ### Tuples
 
 > Grouping of seemingly unrelated values.
@@ -105,7 +104,6 @@
     let isOk, digit = System.Int32.TryParse "2"
 
 ---
-
 ### Records
 
 > Grouping of read-only named values.
@@ -147,13 +145,7 @@
 ***
 ### Recursion
 
-- Recursion not used much
- - depends on readability
-- List, Seq, Array functions
- - map
- - filter
- - fold
-
+> A function that calls itself to apply the same rules repeatedly.
 
 ---
 ### Fibonacci
@@ -163,19 +155,18 @@
 
     let fib (n : int64) =
       let rec loop x =
-        if x = 1L || x = 0L then 1L
+        if x <= 1L then x
         else
           loop (x-1L) + loop (x-2L)
       loop n
 
 ---
-### 10x Recursion
+### Recursion Improved
 
 - Tail Call Optimized
 - Memoization
 
 ***
-
 ### Pattern Matching
 
 > Deconstruct all the things.
@@ -185,7 +176,7 @@
     | false, _ -> failwith "Womp womp" 
 
 ---
-### Matching Records and Lists
+### Matching Lists
 
     let printFirstItems (order : Order) = 
       match order.OrderItems with
@@ -224,10 +215,16 @@
 ---
 ### Partial Pattern / Parameterized
 
-    let (|StringsMatch|_|) (patterns : string seq) v =
-      let c = v, StringComparison.CurrentCultureIgnoreCase
-      if patterns |> Seq.exists (fun p -> p.Equals c)
-      then Some (v.ToUpper())
+
+    open System.Text.RegularExpressions
+
+    let (|RegexMatch|_|) (pattern : string) v =
+      let m = Regex.Match (v, pattern)
+      if m.Success
+      then [ for x in m.Groups do 
+                 yield x.Value ] 
+           |> List.skip 1   
+           |> Some
       else None
 
 ---
@@ -338,7 +335,6 @@
 - Profit?
 
 ***
-
 ### Honourable Mentions
 
 - Type Providers
@@ -352,6 +348,9 @@
  - https://fsharpforfunandprofit.com/posts/property-based-testing/
 - Precompiled Azure Functions
  - https://discardchanges.com/post/building-azure-functions-with-precompiled-fsharp/
+- FSharpx
+ - https://github.com/fsprojects/FSharpx.Extras
+  - Recommend: Prelude.fs
 
 ***
 
