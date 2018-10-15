@@ -290,15 +290,12 @@
     }
 
 ---
-### Sequence
+### Writing Our Own
 
-    let fib = 
-       let rec fib' x y =
-          seq {
-             yield  y
-             yield! fib' y (x + y)
-          }
-       fib' 0 1
+- Create a class
+- Minimum required methods
+ - `bind`
+ - `return`
 
 ***
 ### F# Azure Function
