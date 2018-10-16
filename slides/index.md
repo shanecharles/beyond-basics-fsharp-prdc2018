@@ -172,10 +172,20 @@
       loop n
 
 ---
-### Recursion Improved
+### Recursive Optimizations
 
 - Tail Call Optimized
 - Memoization
+
+---
+### Recursion Alternatives
+
+- Seq.scan
+- Seq.map
+- Seq.filter
+- Seq.fold
+- Seq.unfold
+- etc.
 
 ***
 ### Pattern Matching
@@ -271,7 +281,6 @@
 
 
 ***
-
 ### Computation Expressions
 
 > a convenient syntax for writing computations that can be sequenced and combined
