@@ -55,6 +55,7 @@
 - Functional First
 - Immutable by default
 - Structural equality by default
+- Type Inference
 
 ---
 
@@ -131,6 +132,16 @@
       | OK
       | Fail of (string * string) list
       | Error of System.Exception
+
+---
+### Option
+
+- Avoid nulls
+
+
+    type Option<'a> = 
+        | Some of 'a
+        | None
 
 ---
 ### Currying
