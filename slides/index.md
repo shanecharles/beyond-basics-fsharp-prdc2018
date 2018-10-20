@@ -36,7 +36,6 @@
       | GitHub  -> "shanecharles"
 
 ***
-
 ### Path
 
 - Whirlwind Tour of F#
@@ -48,7 +47,16 @@
 - Summary
 
 ***
+### Why Functional
 
+- Step outside our known world
+- Immutability
+ - Different way of thinking
+ - Parallel processing
+ - Predictability
+- smaller pieces for a larger solution
+
+***
 ### F#
 
 - General purpose language on the CLR
@@ -58,7 +66,6 @@
 - Type Inference
 
 ---
-
 ### Keywords
 
 - `let`
@@ -67,8 +74,6 @@
 - `type`
 
 ---
-
-
 ### Hello, Operator?
 
     // (=) equality with value binding
@@ -87,12 +92,16 @@
     let xs = 42 :: [ 2; 24 ]
 
 ---
-
 ### Necessary Evil
 
     // (<-) Mutation!
     let req = System.Net.WebRequest.Create "https://google.ca"
     req.Timeout <- 30000
+
+---
+### Reading F#
+
+![Arrows](images/follow_the_arrows.png)
 
 ---
 ### Tuples
@@ -102,7 +111,11 @@
     let success = (true, 5)
     let (isSuccess, value) = success
 
-    let isOk, digit = System.Int32.TryParse "2"
+---
+### Tuples Don'ts
+
+- No more than 3 values
+- Don't pass them as data
 
 ---
 ### Records
@@ -113,15 +126,6 @@
                    CustomerId : int
                    OrderItems : string list }
     
-    let ord1 = { OrderId=1
-                 CustomerId=1
-                 OrderItems=["Fries"] }
----
-### Record Update Shorthand
-
-    let ord2 = { ord1 with 
-                   OrderItems = "Car" :: ord1.OrderItems }
-
 ---
 ### Discrimanted Unions
 
@@ -180,12 +184,13 @@
 ---
 ### Recursion Alternatives
 
-- Seq.scan
 - Seq.map
 - Seq.filter
+- Seq.scan
+- Seq.chunkBySize
+- List.partition
 - Seq.fold
 - Seq.unfold
-- etc.
 
 ***
 ### Pattern Matching
@@ -301,15 +306,6 @@
 - `!` bang notation
 
 ---
-### Asynchronous Computation
-
-    let req = System.Net.HttpWebRequest.Create("https://google.ca")
-    async { 
-       use! resp = req.AsyncGetResponse ()
-       printfn "Downloaded %0" resp.ResponseUri
-    }
-
----
 ### Writing Our Own
 
 - Create a class
@@ -350,13 +346,6 @@
 - dotnet publish
 - Deploy via VS Code
 - Profit?
-
-***
-### Honourable Mentions
-
-- Type Providers
-- Property Based Testing
-  - FsCheck
 
 ***
 ### Extra Resources
